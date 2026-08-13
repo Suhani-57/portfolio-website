@@ -9,7 +9,7 @@
         "-ExecutionPolicy",
         "Bypass",
         "-File",
-        "C:/Users/suhan/AppData/Local/Temp/claude/C--Users-suhan-Downloads-portfolio-website/08322712-92b8-4b6b-b073-754197c943bc/scratchpad/serve.ps1",
+        ".claude/serve.ps1",
         "-port",
         "5173"
       ],
