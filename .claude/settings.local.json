@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(foreach \\($c in @\\('node','python','py','npx'\\)\\) { $g = Get-Command $c -ErrorAction SilentlyContinue; if \\($g\\) { \"$c -> $\\($g.Source\\)\" } else { \"$c -> not found\" } })",
+      "PowerShell(& \"C:\\\\Users\\\\suhan\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-suhan-Downloads-portfolio-website\\\\08322712-92b8-4b6b-b073-754197c943bc\\\\scratchpad\\\\serve.ps1\")"
+    ]
+  }
+}
