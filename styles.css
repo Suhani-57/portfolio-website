@@ -534,7 +534,7 @@
     margin-bottom:18px;
   }
   .about-copy h3{ font-size:1.35rem; font-weight:600; margin-bottom:14px; }
-  .about-copy p{ font-size:1.02rem; line-height:1.65; margin-bottom:14px; color:rgba(255,255,255,0.96); max-width:52ch; }
+  .about-copy p{ font-size:1.12rem; line-height:1.65; margin-bottom:14px; color:rgba(255,255,255,0.96); max-width:52ch; }
   .about-copy .btn-light{
     margin-top:14px; display:inline-flex; align-items:center; gap:10px;
     background:#fff; color:var(--navy); font-weight:700; padding:14px 30px; border-radius:999px;
@@ -566,6 +566,11 @@
   @media (max-width:1350px){
     .mr-sub{ white-space:normal; }
   }
+  /* stronger scroll reveal for this block — travels further, takes longer,
+     and the sub-line follows the heading instead of arriving with it */
+  .mr-title.reveal{ transform:translateY(64px); transition-duration:1.05s; }
+  .mr-sub.reveal{ transform:translateY(44px); transition-duration:1.05s; transition-delay:.18s; }
+  .mr-title.reveal.in, .mr-sub.reveal.in{ transform:translateY(0); }
   .mr-deco{
     position:absolute; top:0; right:5vw; width:min(20vw, 260px);
     z-index:0; pointer-events:none; opacity:0.95;
@@ -752,7 +757,7 @@
     .project-item .pname{ font-size:1.15rem; }
     .about-copy{ padding:28px 18px; }
     .about-copy h3{ font-size:1.2rem; }
-    .about-copy p{ font-size:0.96rem; }
+    .about-copy p{ font-size:1rem; }
     .make-remember{ padding:60px 5vw 80px; }
     .site-footer{ padding:60px 5vw 36px; }
     .leaf img{ width:118px; }

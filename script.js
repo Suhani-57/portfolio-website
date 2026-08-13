@@ -137,10 +137,16 @@
   // ---------- magnetic SUHANI badge ----------
   var suhaniBadge = document.getElementById('suhaniBadge');
   var suhaniImg = document.querySelector('.suhani-badge-img');
-  // desktop only — below 1200px the badge sits on the card edge and the
-  // magnetic pull would drag it past the viewport
-  if(suhaniBadge && suhaniImg && !prefersReduced && window.matchMedia('(min-width:1200px)').matches){
+  var desktopPointer = window.matchMedia('(min-width:1200px)');
+  if(suhaniBadge && suhaniImg && !prefersReduced){
     document.addEventListener('mousemove', function(e){
+      // desktop only — below 1200px the badge sits on the card edge and the
+      // magnetic pull would drag it past the viewport. Checked per move so it
+      // keeps working when the window is resized.
+      if(!desktopPointer.matches){
+        if(suhaniImg.style.transform) suhaniImg.style.transform = '';
+        return;
+      }
       var r = suhaniBadge.getBoundingClientRect();
       var cx = r.left + r.width/2;
       var cy = r.top + r.height/2;
@@ -250,7 +256,10 @@
   });
 
   // ---------- reveal on scroll ----------
-  var revealEls = document.querySelectorAll('.reveal');
+  // one-shot reveal for everything except the "Making ideas worth remembering"
+  // block, which is handled below so it can replay
+  var revealEls = document.querySelectorAll('.reveal:not(.mr-title):not(.mr-sub)');
+  var mrEls = document.querySelectorAll('.mr-title.reveal, .mr-sub.reveal');
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -258,7 +267,26 @@
       });
     }, {threshold:0.15});
     revealEls.forEach(function(el){ io.observe(el); });
+
+    // Replays every time the block is scrolled down to. Revealing and resetting
+    // are separate observers on purpose: the reset only runs once the element is
+    // completely below the viewport, so the text never animates out while it is
+    // still on screen (which looked like a glitch when scrolling past it).
+    var mrReveal = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting) entry.target.classList.add('in');
+      });
+    }, {threshold:0.2, rootMargin:'0px 0px -12% 0px'});
+    var mrReset = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting && entry.boundingClientRect.top > 0){
+          entry.target.classList.remove('in');
+        }
+      });
+    }, {threshold:0});
+    mrEls.forEach(function(el){ mrReveal.observe(el); mrReset.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('in'); });
+    mrEls.forEach(function(el){ el.classList.add('in'); });
   }
 })();
