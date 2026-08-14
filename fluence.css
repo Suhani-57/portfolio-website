@@ -1,0 +1,378 @@
+/* ============================================================
+   FLUENCE CASE STUDY — page-specific styles
+   Scoped entirely to .page-fluence / .fl-* so it cannot affect
+   the homepage. Loaded AFTER styles.css.
+   Desktop reference frame: 1920px (Figma).
+   ============================================================ */
+
+@font-face{
+  font-family:'Tall and Lean';
+  src:url('assets/fonts/tall-and-lean.ttf') format('truetype');
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Casanova';
+  src:url('assets/fonts/casanova.ttf') format('truetype');
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Open Sans Local';
+  src:url('assets/fonts/open-sans-variable.ttf') format('truetype');
+  font-weight:300 800; font-style:normal; font-display:swap;
+}
+
+/* ---------- tokens (scoped) ---------- */
+.page-fluence{
+  --fl-midnight:#264D7A;
+  --fl-slate:#6583A2;
+  --fl-ice:#E7ECEF;
+  --fl-cloud:#A4CDED;
+  --fl-panel:#D6E5F6;
+  --fl-panel-grad-a:#F2F5F7;
+  --fl-panel-grad-b:#6986A4;
+  --fl-ink:#000000;
+  --fl-white:#FFFFFF;
+
+  /* container gutters, proportional to the 1920 frame */
+  --fl-gutter-text:clamp(20px, 9.375vw, 180px);   /* 180 @1920 */
+  --fl-gutter-media:clamp(16px, 4.1667vw, 80px);  /*  80 @1920 */
+  --fl-gutter-panel:clamp(16px, 8.3333vw, 160px); /* 160 @1920 */
+
+  /* type scale (px value = size @1920) */
+  --fl-fs-display:clamp(3.2rem, 6.77vw, 130px);
+  --fl-fs-tagline:clamp(1.05rem, 2.083vw, 40px);
+  --fl-fs-band:clamp(1.75rem, 4.583vw, 88px);
+  --fl-fs-h2:clamp(1.15rem, 1.5625vw, 30px);
+  --fl-fs-body:clamp(0.95rem, 1.1458vw, 22px);
+  --fl-fs-caption:clamp(0.9rem, 1.0417vw, 20px);
+
+  /* vertical rhythm */
+  --fl-gap-section:clamp(48px, 10.4vw, 200px);
+  --fl-gap-block:clamp(24px, 4.7vw, 90px);
+  --fl-radius:clamp(16px, 1.6vw, 30px);
+
+  background:var(--fl-white);
+}
+
+/* running text uses Open Sans; header/footer keep the site font */
+.page-fluence .fl-main{
+  font-family:'Open Sans Local','Open Sans','Poppins',sans-serif;
+  color:var(--fl-ink);
+  display:flex;
+  flex-direction:column;
+  gap:var(--fl-gap-section);
+  padding-bottom:var(--fl-gap-section);
+}
+.page-fluence .fl-main img{ max-width:100%; height:auto; display:block; }
+
+/* ---------- containers ---------- */
+.page-fluence .fl-col{
+  width:100%; max-width:1920px; margin-inline:auto;
+  padding-inline:var(--fl-gutter-text);
+}
+.page-fluence .fl-media{
+  width:100%; max-width:1920px; margin-inline:auto;
+  padding-inline:var(--fl-gutter-media);
+  margin-block:0;
+}
+.page-fluence .fl-panel{
+  width:100%; max-width:1920px; margin-inline:auto;
+  padding-inline:var(--fl-gutter-panel);
+}
+
+/* ---------- shared type ---------- */
+.page-fluence .fl-main p{
+  font-size:var(--fl-fs-body);
+  line-height:1.5;
+  margin-bottom:1.1em;
+  text-align:justify;
+}
+.page-fluence .fl-main p:last-child{ margin-bottom:0; }
+
+/* section label — midnight blue, e.g. THE OUTCOME / TYPOGRAPHY */
+.page-fluence .fl-label{
+  font-size:var(--fl-fs-h2); font-weight:700; color:var(--fl-midnight);
+  margin-bottom:0.9em; line-height:1.25; text-transform:none;
+}
+.page-fluence .fl-label-center{ text-align:center; }
+
+/* question heading — black */
+.page-fluence .fl-q{
+  font-size:var(--fl-fs-h2); font-weight:700; color:var(--fl-ink);
+  margin-bottom:0.9em; line-height:1.3;
+}
+/* accent line — slate blue.
+   These are scoped under .fl-main so they outrank the `.fl-main p` base rule. */
+.page-fluence .fl-main .fl-accent{
+  font-size:var(--fl-fs-h2); color:var(--fl-slate); font-weight:400;
+  line-height:1.3; margin-bottom:1em; text-align:left;
+}
+/* bold sub-line under a label */
+.page-fluence .fl-main .fl-sub{ font-weight:700; text-align:left; }
+.page-fluence .fl-main .fl-lead-in{ text-align:left; }
+/* centred slate caption */
+.page-fluence .fl-main .fl-caption{
+  font-size:var(--fl-fs-caption); color:var(--fl-slate); font-weight:600;
+  text-align:center; line-height:1.4;
+  max-width:1400px; margin-inline:auto;
+}
+
+/* ---------- 1. hero ---------- */
+.page-fluence .fl-hero img{ width:100%; border-radius:var(--fl-radius); }
+
+/* ---------- 2. title + tagline ---------- */
+.page-fluence .fl-title{ text-align:center; }
+.page-fluence .fl-display{
+  font-family:'Tall and Lean',sans-serif;
+  font-size:var(--fl-fs-display);
+  font-weight:400; color:var(--fl-midnight);
+  line-height:1; letter-spacing:0.02em; margin-bottom:0.28em;
+}
+.page-fluence .fl-main .fl-tagline{
+  font-family:'Tall and Lean',sans-serif;
+  font-size:var(--fl-fs-tagline);
+  color:var(--fl-midnight);
+  letter-spacing:0.1em; line-height:1.2;
+  text-align:center; margin-bottom:0;
+}
+
+/* ---------- 4. project metadata ---------- */
+.page-fluence .fl-meta{ padding-inline:clamp(20px, 15.6vw, 300px); }
+.page-fluence .fl-meta-grid{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:clamp(20px, 2.6vw, 50px);
+  margin-bottom:clamp(24px, 3.1vw, 60px);
+}
+.page-fluence .fl-meta-item h2{
+  font-size:var(--fl-fs-body); font-weight:700; color:var(--fl-midnight);
+  margin-bottom:0.5em; line-height:1.3;
+}
+.page-fluence .fl-main .fl-meta-item p{ text-align:left; margin-bottom:0; }
+
+/* ---------- 8/13/15. water dividers (full-bleed) ---------- */
+.page-fluence .fl-divider{ width:100%; margin:0; }
+.page-fluence .fl-divider img{
+  width:100%; height:clamp(70px, 12.7vw, 244px);
+  object-fit:cover; display:block;
+}
+
+/* ---------- generic two-column split ---------- */
+.page-fluence .fl-split{
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:clamp(28px, 8.3vw, 160px);
+  align-items:start;
+}
+.page-fluence .fl-split-media-first{ grid-template-columns:0.95fr 1fr; gap:clamp(28px, 6vw, 115px); }
+.page-fluence .fl-split-narrow{ grid-template-columns:0.53fr 1fr; gap:clamp(28px, 3.1vw, 60px); }
+.page-fluence .fl-split-img img{ width:100%; }
+
+/* ---------- 9. why the name — logo marks ---------- */
+.page-fluence .fl-marks{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(20px, 3.1vw, 60px); text-align:center;
+}
+.page-fluence .fl-mark{ margin:0; display:flex; flex-direction:column; align-items:center; }
+.page-fluence .fl-mark figcaption{
+  font-size:var(--fl-fs-body); font-weight:700; color:var(--fl-ink);
+  margin-bottom:clamp(16px, 2.6vw, 50px);
+}
+.page-fluence .fl-mark:first-child img{ height:clamp(180px, 25vw, 480px); width:auto; }
+.page-fluence .fl-mark:last-child img{ width:clamp(110px, 15vw, 288px); height:auto; margin-top:clamp(30px, 7.8vw, 150px); }
+.page-fluence .fl-name .fl-caption{ margin-top:clamp(28px, 4.7vw, 90px); }
+
+/* ---------- hairline rules ---------- */
+.page-fluence .fl-rule{
+  border:0; height:1px; background:rgba(101,131,162,0.45);
+  width:calc(100% - 2 * clamp(20px, 7.8vw, 150px));
+  max-width:1620px; margin:0 auto;
+}
+
+/* ---------- 11. logo variations ----------
+   The supplied asset already contains the panel gradient, the
+   "LOGO VARIATIONS" label and the rounded corners, so it is placed as-is. */
+.page-fluence .fl-logos img{ width:100%; }
+
+/* ---------- 14. typography ---------- */
+.page-fluence .fl-typography{
+  padding-inline:var(--fl-gutter-text) clamp(16px, 6.25vw, 120px);
+}
+.page-fluence .fl-type-panel{ margin:0; }
+.page-fluence .fl-type-panel img{ width:100%; border-radius:var(--fl-radius); }
+
+/* ---------- 16. colour palette ---------- */
+.page-fluence .fl-swatches{ margin:clamp(28px, 4.7vw, 90px) 0 0; }
+.page-fluence .fl-swatches img{ width:100%; }
+
+/* ---------- 17. campaign grid ---------- */
+.page-fluence .fl-campaign{
+  width:100%; max-width:1920px; margin-inline:auto;
+  padding-inline:clamp(16px, 7.8vw, 150px);
+  display:flex; flex-direction:column;
+  gap:clamp(12px, 2.5vw, 48px);
+}
+.page-fluence .fl-camp-row{
+  display:flex; align-items:stretch;
+  gap:clamp(10px, 2vw, 38px);
+}
+/* min-width:0 is required — a flex item's automatic minimum size is the
+   image's intrinsic width, which would stop it shrinking to share the row */
+.page-fluence .fl-camp-row img{ width:100%; height:auto; display:block; min-width:0; }
+/* flex-grow proportional to aspect ratio -> images share a common height */
+.page-fluence .fl-camp-row img:nth-child(1){ flex:1.1785 1 0; }
+.page-fluence .fl-camp-row img:nth-child(2){ flex:1.0182 1 0; }
+.page-fluence .fl-camp-row-tall{ padding-inline:clamp(0px, 3.6vw, 70px); }
+.page-fluence .fl-camp-row-tall img:nth-child(1){ flex:0.8052 1 0; }
+.page-fluence .fl-camp-row-tall img:nth-child(2){ flex:0.6745 1 0; }
+
+/* ---------- 18. large logo mark ---------- */
+.page-fluence .fl-logomark{ text-align:center; }
+.page-fluence .fl-logomark img{
+  width:clamp(90px, 10.4vw, 200px); height:auto; margin-inline:auto;
+}
+
+/* ---------- 19. product group shot ---------- */
+.page-fluence .fl-product{
+  width:100%; max-width:1920px; margin:0 auto;
+  padding-inline:clamp(16px, 9.3vw, 178px);
+}
+.page-fluence .fl-product img{ width:100%; }
+
+/* ---------- 20. bottom tagline ---------- */
+.page-fluence .fl-tagline-band{ text-align:center; }
+.page-fluence .fl-main .fl-tagline-band p{
+  font-family:'Tall and Lean',sans-serif;
+  font-size:var(--fl-fs-band);
+  color:var(--fl-midnight);
+  letter-spacing:0.03em; line-height:1.15;
+  text-align:center; margin-bottom:0;
+}
+
+/* ============================================================
+   MOTION
+   Reveals are gated behind .fl-js so the page is never left
+   invisible if the script fails. Easing reuses the portfolio's
+   --ease token so the feel matches the homepage.
+   ============================================================ */
+
+/* --- section reveal: slow fade-up --- */
+.page-fluence.fl-js .fl-reveal{
+  opacity:0; transform:translateY(28px);
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+}
+.page-fluence.fl-js .fl-reveal.in{ opacity:1; transform:none; }
+
+/* --- large photography: very subtle settle from slightly oversize --- */
+.page-fluence.fl-js .fl-hero img,
+.page-fluence.fl-js .fl-media img,
+.page-fluence.fl-js .fl-split-img img,
+.page-fluence.fl-js .fl-product img{
+  transform:scale(1.03);
+  transition:transform 1.5s var(--ease);
+  will-change:transform;
+}
+.page-fluence.fl-js .fl-reveal.in img,
+.page-fluence.fl-js .fl-reveal.in .fl-split-img img{ transform:none; }
+
+/* --- hero title: the section itself holds still, its two lines stagger in --- */
+.page-fluence.fl-js .fl-title.fl-reveal{ opacity:1; transform:none; }
+.page-fluence.fl-js .fl-title .fl-display{
+  opacity:0; transform:translateY(30px);
+  transition:opacity 1.15s var(--ease), transform 1.15s var(--ease);
+}
+.page-fluence.fl-js .fl-title .fl-tagline{
+  opacity:0; transform:translateY(22px);
+  transition:opacity 1.15s var(--ease) .18s, transform 1.15s var(--ease) .18s;
+}
+.page-fluence.fl-js .fl-title.in .fl-display,
+.page-fluence.fl-js .fl-title.in .fl-tagline{ opacity:1; transform:none; }
+
+/* --- hover: only on pointer devices, only on the gallery imagery --- */
+@media (hover:hover) and (pointer:fine){
+  .page-fluence .fl-camp-row img,
+  .page-fluence .fl-product img{
+    transition:transform 1.5s var(--ease);
+  }
+  .page-fluence.fl-js .fl-reveal.in .fl-camp-row img:hover,
+  .page-fluence.fl-js .fl-reveal.in.fl-product img:hover{
+    transform:scale(1.015);
+    transition:transform .6s var(--ease);
+  }
+}
+
+/* --- reduced motion: hold everything at its final state --- */
+@media (prefers-reduced-motion: reduce){
+  .page-fluence.fl-js .fl-reveal,
+  .page-fluence.fl-js .fl-reveal img,
+  .page-fluence.fl-js .fl-title .fl-display,
+  .page-fluence.fl-js .fl-title .fl-tagline,
+  .page-fluence.fl-js .fl-hero img,
+  .page-fluence.fl-js .fl-media img,
+  .page-fluence.fl-js .fl-split-img img,
+  .page-fluence.fl-js .fl-product img,
+  .page-fluence .fl-camp-row img{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — adapts the desktop Figma, does not redesign it
+   ============================================================ */
+
+/* ---- tablet: 768–1199 ---- */
+@media (max-width:1199px){
+  .page-fluence .fl-meta{ padding-inline:clamp(20px, 11vw, 220px); }
+  .page-fluence .fl-split{ gap:clamp(28px, 5vw, 90px); }
+}
+
+/* ---- mobile: <=767 ---- */
+@media (max-width:767px){
+  .page-fluence .fl-main{ gap:clamp(40px, 12vw, 64px); }
+
+  /* stack every two-column section, image first */
+  .page-fluence .fl-split,
+  .page-fluence .fl-split-media-first,
+  .page-fluence .fl-split-narrow{
+    grid-template-columns:1fr;
+    gap:clamp(24px, 7vw, 40px);
+  }
+  .page-fluence .fl-split-img{ order:-1; }
+  .page-fluence .fl-type-panel{ order:-1; }
+
+  /* body copy left-aligned on small screens */
+  .page-fluence .fl-main p{ text-align:left; }
+  .page-fluence .fl-main .fl-tagline,
+  .page-fluence .fl-main .fl-caption,
+  .page-fluence .fl-main .fl-tagline-band p{ text-align:center; }
+
+  /* metadata 3 -> 1 column */
+  .page-fluence .fl-meta{ padding-inline:var(--fl-gutter-text); }
+  .page-fluence .fl-meta-grid{ grid-template-columns:1fr; gap:22px; }
+
+  /* logo marks stay side by side but shrink */
+  .page-fluence .fl-mark:first-child img{ height:clamp(150px, 38vw, 220px); }
+  .page-fluence .fl-mark:last-child img{ width:clamp(100px, 26vw, 150px); margin-top:clamp(20px, 10vw, 50px); }
+
+  /* campaign grid 2x2 -> single column */
+  .page-fluence .fl-camp-row{ flex-direction:column; gap:14px; }
+  .page-fluence .fl-camp-row img{ flex:0 0 auto; width:100%; }
+  .page-fluence .fl-camp-row-tall{ padding-inline:0; }
+
+  .page-fluence .fl-typography{ padding-inline:var(--fl-gutter-text); }
+  .page-fluence .fl-product{ padding-inline:20px; }
+  .page-fluence .fl-campaign{ padding-inline:20px; }
+  .page-fluence .fl-tagline-band p{ letter-spacing:0.02em; }
+}
+
+/* ---- small phones: <=380 ---- */
+@media (max-width:380px){
+  .page-fluence .fl-col,
+  .page-fluence .fl-meta,
+  .page-fluence .fl-typography{ padding-inline:16px; }
+  .page-fluence .fl-media{ padding-inline:12px; }
+  .page-fluence .fl-panel{ padding-inline:12px; }
+  .page-fluence .fl-campaign,
+  .page-fluence .fl-product{ padding-inline:16px; }
+}

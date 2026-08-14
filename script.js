@@ -91,7 +91,7 @@
       chips:["Illustration","Fan Art"] },
     { name:"Fluence", tag:"Branding", icon:"F", c1:"#FF9FC0", c2:"#E4568F",
       desc:"Visual identity for a creator-led brand — logo system, palette, and social templates.",
-      chips:["Branding","Logo System"] },
+      chips:["Branding","Logo System"], url:"fluence.html" },
     { name:"Unseen", tag:"UI/UX case study", icon:"U", c1:"#8C87D9", c2:"#4F49A8",
       desc:"Redesigning a hidden-gem discovery app end to end, from user flows to final UI.",
       chips:["UI/UX","Case Study"] },
@@ -164,7 +164,11 @@
   }
 
   projects.forEach(function(p, i){
-    var item = document.createElement('div');
+    // Projects with a `url` render as a real anchor so keyboard, middle-click
+    // and open-in-new-tab all work. The class is unchanged, so styling, hover,
+    // tilt and preview behaviour are identical to the <div> cards.
+    var item = document.createElement(p.url ? 'a' : 'div');
+    if(p.url) item.href = p.url;
     item.className = 'project-item';
     item.innerHTML =
       '<span class="pname">'+p.name+'</span>';
