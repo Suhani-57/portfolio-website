@@ -10,15 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-home">
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
   <nav class="nav-pill" aria-label="Primary">
-    <div class="nav-avatar"><img src="assets/images/favicon.webp" alt="Suhani Abrol logo"></div>
+    <div class="nav-avatar"><a href="#about" data-target="#about" aria-current="page" aria-label="Suhani Abrol — back to top"><img src="assets/images/favicon.webp" alt=""></a></div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about" class="nav-link active" data-target="#about">About me<span class="dot"></span></a></li>
+      <li><a href="#about-me" class="nav-link" data-target="#about-me">About me<span class="dot"></span></a></li>
       <li><a href="#work" class="nav-link" data-target="#work">Projects<span class="dot"></span></a></li>
       <li><a href="#about-me" class="nav-link" data-target="#about-me">Other works<span class="dot"></span></a></li>
       <li><a href="#contact" class="nav-link" data-target="#contact">Contact<span class="dot"></span></a></li>
@@ -43,7 +43,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-panel">
     <span class="mobile-close" id="mobileClose">&times;</span>
-    <a href="#about" data-target="#about">About me →</a>
+    <a href="#about-me" data-target="#about-me">About me →</a>
     <a href="#work" data-target="#work">Projects →</a>
     <a href="#about-me" data-target="#about-me">Other works →</a>
     <a href="#contact" data-target="#contact">Contact →</a>
@@ -56,31 +56,31 @@
 </div>
 
 <!-- ================= HERO ================= -->
-<section class="hero paper-bg" id="about">
-  <div class="hero-copy">
-    <h1 class="reveal reveal-delay-1">Hi there, I'm Suhani</h1>
-    <p class="subhead reveal reveal-delay-2">A MULTIDISCIPLINARY DESIGNER<br>BLENDING VISUALS, STORIES &amp; DIGITAL EXPERIENCES.</p>
-    <p class="desc reveal reveal-delay-3">I'm a designer who enjoys turning ideas into <strong>expressive visual experiences</strong>. I work across branding, graphic design, illustration, UI/UX and everything in between — combining curiosity, storytelling and experimentation to create work that feels intentional.</p>
-    <p class="aside reveal reveal-delay-3">also i draw a lot, listen to too much K-pop, and have a soft spot for lilies (˶˃ ⩊ ˂˶)</p>
-    <a href="#work" class="btn reveal reveal-delay-4" data-target="#work">
+<section class="hero" id="about">
+  <div class="hero-stage">
+    <div class="hero-card reveal reveal-delay-1">
+      <!-- the perforated paper shape is a separate layer so the polaroid and
+           the stamp can overhang the card edge without being clipped by it -->
+      <span class="hc-paper" aria-hidden="true"></span>
+
+      <h1 class="hc-title">
+        <img src="assets/images/hero-note.png" alt="Hi there!! I am Suhani — a multidisciplinary designer blending visuals, stories &amp; digital experiences.">
+      </h1>
+      <img class="hc-stamp" src="assets/images/hero-stamp.png" alt="">
+      <img class="hc-polaroid" src="assets/images/hero-polaroid.png" alt="Photograph of Suhani Abrol">
+
+      <p class="hc-desc">I'm a designer who enjoys turning ideas into expressive visual experiences. I work across branding, graphic design, illustration, UI/UX and everything in between — combining curiosity, storytelling and experimentation to create work that feels intentional.</p>
+      <p class="hc-aside">also i draw a lot, listen to too much K-pop, and have a soft spot for lilies (˶˃ ⩊ ˂˶)</p>
+
+      <img class="hc-avatar" src="assets/images/footer-avatar.png" alt="">
+    </div>
+
+    <a href="#work" class="hero-cta reveal reveal-delay-3" data-target="#work">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       See my work
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
 
-  <div class="hero-art">
-    <div class="char-wrap">
-      <img class="character" src="assets/images/hero-character.webp" alt="Illustrated portrait of Suhani, wearing a polka dot top and wide jeans">
-      <span class="note n1">Painting <svg viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.6 2.3 7.4L12 17l-6.3 4.5 2.3-7.4L2 9.5h7.5z"/></svg></span>
-      <span class="note n3">Sketching <svg viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.6 2.3 7.4L12 17l-6.3 4.5 2.3-7.4L2 9.5h7.5z"/></svg></span>
-      <span class="note n2">K-pop <svg viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.6 2.3 7.4L12 17l-6.3 4.5 2.3-7.4L2 9.5h7.5z"/></svg></span>
-      <span class="note n4">Music <svg viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.6 2.3 7.4L12 17l-6.3 4.5 2.3-7.4L2 9.5h7.5z"/></svg></span>
-      <span class="note n5">lilies <svg viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.6 2.3 7.4L12 17l-6.3 4.5 2.3-7.4L2 9.5h7.5z"/></svg></span>
-      <span class="note n6">reading <svg viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.6 2.3 7.4L12 17l-6.3 4.5 2.3-7.4L2 9.5h7.5z"/></svg></span>
-      <img class="bow-deco" src="assets/images/bow-deco.webp" alt="">
-      <img class="sparkle-deco" src="assets/images/sparkle-deco.webp" alt="">
-    </div>
-  </div>
   <a href="#work" class="scroll-cue" data-target="#work" aria-label="Scroll to selected works">
     Scroll
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -110,6 +110,7 @@
         <div class="preview-card-face">
         <div class="preview-back"></div>
         <div class="preview-front" id="previewFront">
+          <img class="p-card-img" id="pCardImg" src="assets/images/works/card-hoopr.png" alt="">
           <span class="p-icon" id="pIcon">M</span>
           <span class="p-tag" id="pTag">Illustration series</span>
           <h3 id="pTitle">Music Artworks</h3>
@@ -118,8 +119,10 @@
         <div class="deco-chip chip-a" id="chipA"><span class="dot"></span><span id="chipAText">Illustration</span></div>
         <div class="deco-chip chip-b" id="chipB"><span class="dot"></span><span id="chipBText">Fan Art</span></div>
         </div>
-        <div class="suhani-badge" id="suhaniBadge">
-          <img class="suhani-badge-img" src="assets/images/suhani-badge.webp" alt="Suhani">
+        <div class="badge-rider">
+          <div class="suhani-badge" id="suhaniBadge">
+            <img class="suhani-badge-img" src="assets/images/suhani-badge.webp" alt="Suhani">
+          </div>
         </div>
       </div>
       </div>
@@ -132,13 +135,12 @@
 <section class="about" id="about-me">
   <div class="about-banner reveal" style="background-image:url('assets/images/about-banner.jpg');">
     <div class="about-copy">
-      <h2 class="script">More About Me</h2>
-      <h3>One thing about me?</h3>
-      <p>I'm probably going to ask &ldquo;but what if we tried this?&rdquo; at least five times.</p>
-      <p>I'm someone who loves exploring ideas through branding, visuals, illustration, UI/UX and digital experiences. I like turning ideas into things people can see, use, feel and hopefully remember.</p>
-      <p>And yes, I will probably change the font one more time.</p>
+      <h2 class="script">About Me</h2>
+      <p>I&rsquo;m naturally curious, which means I like seeing where an idea can go before deciding what it should be. I&rsquo;ll ask questions, try different things, change things around.</p>
+      <p>I like exploring design in all the ways it can exist; from branding and illustration to UI/UX, digital experiences and everything in between. I enjoy taking an idea that&rsquo;s still a little messy and figuring out how to give it a look, a story and a personality of its own.</p>
+      <p>I think that&rsquo;s what makes designing fun for me. There&rsquo;s rarely just one right answer, and there&rsquo;s always another possibility worth exploring.</p>
       <a href="#contact" class="btn-light" data-target="#contact">
-        View my Resume
+        Read More
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>

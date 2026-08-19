@@ -31,73 +31,29 @@
     });
   });
 
-  // ---------- hero parallax ----------
-  var heroSection = document.getElementById('about');
-  var charWrap = document.querySelector('.hero-art');
-  if(heroSection && charWrap && !prefersReduced && window.matchMedia('(min-width:981px)').matches){
-    heroSection.addEventListener('mousemove', function(e){
-      var r = heroSection.getBoundingClientRect();
-      var px = (e.clientX - r.left) / r.width - 0.5;
-      var py = (e.clientY - r.top) / r.height - 0.5;
-      charWrap.style.transform = 'translate('+(px*16)+'px,'+(py*14)+'px) rotate('+(px*3)+'deg)';
-    });
-    heroSection.addEventListener('mouseleave', function(){
-      charWrap.style.transform = '';
-    });
-  }
-
-  // ---------- draggable hobby notes ----------
-  document.querySelectorAll('.note').forEach(function(note){
-    var startX, startY, startLeft, startTop, activePointerId = null;
-
-    function onMove(e){
-      if(activePointerId === null || e.pointerId !== activePointerId) return;
-      var dx = e.clientX - startX;
-      var dy = e.clientY - startY;
-      note.style.left = (startLeft + dx) + 'px';
-      note.style.top = (startTop + dy) + 'px';
-    }
-
-    function onUp(e){
-      if(activePointerId === null || e.pointerId !== activePointerId) return;
-      activePointerId = null;
-      note.classList.remove('dragging');
-      document.removeEventListener('pointermove', onMove);
-      document.removeEventListener('pointerup', onUp);
-      document.removeEventListener('pointercancel', onUp);
-    }
-
-    note.addEventListener('pointerdown', function(e){
-      activePointerId = e.pointerId;
-      startX = e.clientX;
-      startY = e.clientY;
-      startLeft = note.offsetLeft;
-      startTop = note.offsetTop;
-      note.style.left = startLeft + 'px';
-      note.style.top = startTop + 'px';
-      note.style.right = 'auto';
-      note.classList.add('dragging');
-      document.addEventListener('pointermove', onMove);
-      document.addEventListener('pointerup', onUp);
-      document.addEventListener('pointercancel', onUp);
-      e.preventDefault();
-    });
-  });
-
   // ---------- data ----------
+  // `pill`/`mark`/`markW` drive the tab's look, `card` the preview artwork.
+  // Colours and wordmarks are taken straight from the supplied tab asset.
   var projects = [
-    { name:"Music Artworks", tag:"Illustration series", icon:"M", c1:"#F7C873", c2:"#EFA33D",
-      desc:"A collection of album-inspired fan art blending expressive linework with color moods.",
-      chips:["Illustration","Fan Art"] },
+    { name:"hoopr", tag:"Music Artwork", icon:"H", c1:"#F7C873", c2:"#EFA33D",
+      desc:"Visual Design for a Music & Entertainment Platform — Music Artwork, Campaigns, Thumbnails.",
+      chips:["Graphic Design","Music Artwork"],
+      pill:"#CC4062", mark:"assets/images/works/wordmark-hoopr.png", markW:"32%",
+      card:"assets/images/works/card-hoopr.png" },
     { name:"Fluence", tag:"Branding", icon:"F", c1:"#FF9FC0", c2:"#E4568F",
-      desc:"Visual identity for a creator-led brand — logo system, palette, and social templates.",
-      chips:["Branding","Logo System"], url:"fluence.html" },
+      desc:"Visual Identity for a Water-Based Skincare Brand — Logo System, Packaging, Typography & Brand Applications.",
+      chips:["Branding","Logo System"], url:"fluence.html",
+      pill:"#E0EDFF", mark:"assets/images/works/wordmark-fluence.png", markW:"33.7%",
+      card:"assets/images/works/card-fluence.png" },
     { name:"Unseen", tag:"UI/UX case study", icon:"U", c1:"#8C87D9", c2:"#4F49A8",
       desc:"Redesigning a hidden-gem discovery app end to end, from user flows to final UI.",
-      chips:["UI/UX","Case Study"] },
+      chips:["UI/UX","Case Study"],
+      pill:"#893E1E", mark:"assets/images/works/wordmark-unseen.png", markW:"47.2%",
+      card:"assets/images/works/card-unseen.png" },
     { name:"Dor", tag:"Digital experience", icon:"D", c1:"#E98C7B", c2:"#B94836",
       desc:"An interactive, story-driven microsite built around a single evocative idea.",
-      chips:["Interactive","Story-driven"] }
+      chips:["Interactive","Story-driven"],
+      pill:"#EBDDCD", mark:"assets/images/works/wordmark-dor.png", markW:"17.8%" }
   ];
 
   var list = document.getElementById('projectList');
@@ -111,9 +67,24 @@
   var chipAText = document.getElementById('chipAText');
   var chipBText = document.getElementById('chipBText');
 
+  var cardImg = document.getElementById('pCardImg');
+  var face = front.parentElement;
+
   function renderPreview(p){
     wrap.style.setProperty('--proj-c1', p.c1);
     wrap.style.setProperty('--proj-c2', p.c2);
+    // projects with supplied card artwork show it in place of the gradient
+    // placeholder; the rest keep the original generated card.
+    if(p.card){
+      cardImg.src = p.card;
+      cardImg.alt = p.name + ' — ' + p.desc;
+      face.classList.add('has-card');
+      front.classList.add('has-card');
+    } else {
+      face.classList.remove('has-card');
+      front.classList.remove('has-card');
+      cardImg.alt = '';
+    }
     pIcon.textContent = p.icon;
     pTag.textContent = p.tag;
     pTitle.textContent = p.name;
@@ -170,8 +141,13 @@
     var item = document.createElement(p.url ? 'a' : 'div');
     if(p.url) item.href = p.url;
     item.className = 'project-item';
+    // the tab colour and wordmark come from the supplied asset; .pname stays
+    // in the markup (visually hidden) so the tab keeps a text accessible name
+    if(p.pill) item.style.setProperty('--pill', p.pill);
+    if(p.markW) item.style.setProperty('--markw', p.markW);
     item.innerHTML =
-      '<span class="pname">'+p.name+'</span>';
+      '<span class="pname">'+p.name+'</span>' +
+      (p.mark ? '<img class="pmark" src="'+p.mark+'" alt="">' : '');
     item.addEventListener('mouseenter', function(){
       document.querySelectorAll('.project-item').forEach(function(el){ el.classList.remove('active'); });
       item.classList.add('active');
@@ -218,12 +194,24 @@
 
   var sections = ['about','work','about-me','contact'].map(function(id){ return document.getElementById(id); });
   var navLinksEls = document.querySelectorAll('.nav-link');
+  // While the site is still growing, two links can share a section — Other
+  // works has none of its own yet and rides along with About me. Only the
+  // first link to claim a target acts as its indicator, so the pill never
+  // lights up in two places at once. Nothing claims the hero, which is why
+  // it stays unmarked apart from the avatar.
+  var claimed = {};
+  var indicators = [];
+  navLinksEls.forEach(function(a){
+    var target = a.getAttribute('data-target');
+    if(target && !claimed[target]){ claimed[target] = true; indicators.push(a); }
+  });
   function onScroll(){
     var pos = window.scrollY + window.innerHeight/3;
     var current = sections[0];
     sections.forEach(function(sec){ if(sec && sec.offsetTop <= pos) current = sec; });
     navLinksEls.forEach(function(a){
-      a.classList.toggle('active', a.getAttribute('data-target') === '#'+current.id);
+      a.classList.toggle('active',
+        indicators.indexOf(a) !== -1 && a.getAttribute('data-target') === '#'+current.id);
     });
   }
   window.addEventListener('scroll', onScroll, {passive:true});
