@@ -1,0 +1,381 @@
+/* ============================================================
+   ABOUT ME PAGE — scoped to body.page-about
+   Loaded after styles.css, which supplies the nav, footer, toast
+   and reveal system. Nothing here targets a shared class without
+   the .page-about prefix, so the homepage and the case-study
+   pages cannot be affected by this file.
+
+   Desktop geometry is measured off the 1440-wide design export.
+   Each section is a container-query context, so positions in %
+   and type in cqw scale together and the composition holds at
+   any width instead of only at 1440.
+   ============================================================ */
+
+  .page-about{
+    background:var(--paper);
+    /* The design frame is 1440, but held at 1440 the page reads oversized on
+       a wide monitor. Everything — band, type, collage — is positioned in %
+       and cqw of this width, so lowering it scales the whole composition
+       down together and keeps every measured relationship intact. The footer
+       is full-bleed from styles.css and is deliberately left out of it. */
+    --ab-max: 1200px;
+  }
+  .page-about .ab-main{ overflow-x:hidden; }
+  /* The header is sticky and so takes up flow space. On the homepage that
+     leaves a strip of paper above the photo; here the band has to start at
+     the very top with the nav floating on it, so the hero is pulled up by
+     the header's own height. 74px covers the tallest of the three header
+     breakpoints, and the band's top edge is flat pink, so over-pulling on
+     the shorter ones costs nothing. */
+  .page-about .ab-hero{ margin-top:-74px; }
+
+  /* ---------- shared section shell ---------- */
+  .page-about .ab-wrap{
+    position:relative;
+    width:100%; max-width:var(--ab-max); margin-inline:auto;
+    container-type: inline-size;
+  }
+  .page-about .ab-h2{
+    position:absolute;
+    font-family:'Poppins', sans-serif; font-weight:700;
+    color:var(--pink-deep); letter-spacing:0.005em;
+    font-size:3.333cqw; line-height:1;
+  }
+
+  /* ============ 1. PINK HERO BAND ============ */
+  /* The band artwork appears exactly once, as the <img> in the stage. It used
+     to be repeated as a cover-scaled background so the halftone would run to
+     the edges, but past the stage's max-width the two copies scale
+     differently and the portrait shows up twice. The flanks are flat pink
+     from the band's own edge instead. */
+  .page-about .ab-hero{ background:#CE4A8E; }
+  /* The band is a full-bleed piece: the portrait runs off the left edge and
+     the flower off the right, so the stage is NOT held to --ab-max like the
+     sections below it. It spans the viewport and keeps its own aspect, which
+     is the only way the artwork reaches both edges without being cropped or
+     stretched. The 1920 ceiling just stops it growing without limit. */
+  .page-about .ab-hero-stage{
+    position:relative;
+    width:100%; max-width:1920px; margin-inline:auto;
+    aspect-ratio: 1440 / 1024;
+    container-type: inline-size;
+  }
+  .page-about .ab-band{
+    position:absolute; inset:0;
+    width:100%; height:100%; object-fit:cover; object-position:center top;
+  }
+  .page-about .ab-photo{ display:none; }
+  .page-about .ab-hero-stage > *:not(.ab-band){ position:absolute; z-index:1; }
+
+  /* the black plate, measured at x483..1036 / y140..248 */
+  .page-about .ab-title{
+    left:33.54%; top:13.67%;
+    width:38.47%; height:10.64%;
+    margin:0;
+    display:flex; align-items:center; justify-content:center;
+    background:#141414; border-radius:1.1cqw;
+    box-shadow:0 1.1cqw 2.2cqw -1cqw rgba(40,10,25,0.45);
+  }
+  .page-about .ab-title span{
+    font-family:'Peace Sans', 'Poppins', sans-serif; font-weight:400;
+    font-size:4.36cqw; line-height:1; color:#fff;
+    letter-spacing:0.005em; white-space:nowrap;
+    transform:translateY(-0.1cqw);
+  }
+
+  .page-about .ab-intro{
+    left:33.61%; top:29.00%; width:63.75%;
+    color:#fff;
+  }
+  .page-about .ab-intro h2{
+    font-family:'Poppins', sans-serif; font-weight:600;
+    font-size:1.944cqw; line-height:1.2; color:#fff;
+    margin:0 0 1.7cqw;
+  }
+  .page-about .ab-intro p{
+    font-family:'Poppins', sans-serif; font-weight:400;
+    font-size:1.389cqw; line-height:1.35; color:#fff;
+    margin:0 0 1.875cqw;
+  }
+  .page-about .ab-intro p:last-child{ margin-bottom:0; }
+
+  /* ============ 2. EXPERIENCE ============ */
+  .page-about .ab-exp-wrap{ aspect-ratio: 1440 / 476; }
+
+  /* The note is pulled up out of its own section so the clip lands on the
+     photograph rather than on the paper below it. It is later in the document
+     than the hero, so it paints over the band without needing a z-index. */
+  .page-about .ab-note{
+    position:absolute;
+    left:-4.31%; top:-23.11%; width:35.76%;
+  }
+  .page-about .ab-note img{ width:100%; height:auto; display:block; }
+  /* the label is set at its own angle in the design — the clip on the note
+     itself sits upright, so only the type is rotated */
+  .page-about .ab-note-label{
+    position:absolute; left:23.3%; top:44%;
+    transform:rotate(4deg); transform-origin:0 50%;
+    font-family:'Poppins', sans-serif; font-weight:800;
+    font-size:3.04cqw; line-height:1; letter-spacing:0.01em;
+    color:var(--pink-deep); white-space:nowrap;
+  }
+
+  .page-about .ab-table{
+    position:absolute;
+    left:32.64%; top:16.49%; width:67.36%;
+  }
+  .page-about .ab-row{
+    display:grid;
+    grid-template-columns: 22.222cqw 19.792cqw 1fr;
+    /* the design tops-aligns the three cells — the two-line organisations
+       hang below their role rather than re-centring it */
+    align-items:start;
+  }
+  /* Row spacing lives entirely on margin-top: a margin-bottom on the header
+     would only collapse against it. The three gaps differ because the design
+     does not space the rows evenly — the two-line organisations pull the row
+     beneath them closer. */
+  .page-about .ab-row + .ab-row{ margin-top:2.78cqw; }
+  .page-about .ab-row:nth-child(2){ margin-top:1.66cqw; }
+  .page-about .ab-row:nth-child(3){ margin-top:2.99cqw; }
+  .page-about .ab-row:nth-child(4){ margin-top:2.15cqw; }
+  /* the headers are centred over a narrower nominal column than the data,
+     which is why each one carries its own width. Written at .ab-row-head
+     .ab-cN so it outranks the data-cell rules below, which match the same
+     spans through .ab-row. */
+  .page-about .ab-row-head .ab-c1,
+  .page-about .ab-row-head .ab-c2,
+  .page-about .ab-row-head .ab-c3{
+    font-family:'Poppins', sans-serif; font-weight:400;
+    font-size:1.44cqw; line-height:1.4; color:#4b4441;
+    display:block; text-align:center;
+  }
+  .page-about .ab-row-head .ab-c1{ width:12.08cqw; }
+  .page-about .ab-row-head .ab-c2{ width:10.28cqw; }
+  .page-about .ab-row-head .ab-c3{ width:17.01cqw; }
+
+  .page-about .ab-row .ab-c1{
+    font-family:'Poppins', sans-serif; font-weight:700;
+    font-size:2.03cqw; line-height:1.25; color:var(--ink);
+  }
+  .page-about .ab-row .ab-c2{
+    font-family:'Poppins', sans-serif; font-weight:400;
+    font-size:1.53cqw; line-height:1.4; color:var(--ink);
+  }
+  .page-about .ab-row .ab-c3{
+    font-family:'Poppins', sans-serif; font-weight:400;
+    font-size:1.275cqw; line-height:1.4; color:#35302f;
+    white-space:nowrap;
+  }
+  .page-about .ab-row .ab-c3 sup{ font-size:0.7em; vertical-align:super; }
+
+  /* ============ 3. TOOL KIT ============ */
+  .page-about .ab-tools-wrap{ aspect-ratio: 1440 / 560; }
+  .page-about .ab-tools-wrap .ab-h2{ left:10.42%; top:10.71%; }
+
+  .page-about .ab-tray{
+    position:absolute;
+    left:6.33%; top:10.09%; width:87.29%;
+  }
+  .page-about .ab-tray-img{ width:100%; height:auto; display:block; }
+  .page-about .ab-tool-list{ margin:0; padding:0; list-style:none; }
+  .page-about .ab-tool-list li{ margin:0; padding:0; }
+  /* every icon is placed by its own measured box; the assets already carry
+     whatever tilt they have in the design, so none is rotated here */
+  .page-about .ab-tool{
+    position:absolute; height:auto; display:block;
+  }
+  /* left/top/width are percentages of the tray, which is what the icons are
+     positioned against — so they stay pinned to it however the tray scales */
+  .page-about .t-ps       { left: 9.37%; top:31.53%; width: 8.99%; }
+  .page-about .t-ai       { left:16.61%; top:53.58%; width: 8.42%; }
+  .page-about .t-figma    { left:23.13%; top:30.93%; width: 9.23%; }
+  .page-about .t-procreate{ left:31.34%; top:49.82%; width: 8.42%; }
+  .page-about .t-chatgpt  { left:40.24%; top:31.51%; width: 7.80%; }
+  .page-about .t-unity    { left:48.22%; top:51.01%; width: 8.78%; }
+  .page-about .t-sora     { left:56.32%; top:31.13%; width: 7.54%; }
+  .page-about .t-affinity { left:66.81%; top:50.20%; width: 8.75%; }
+  .page-about .t-claude   { left:78.82%; top:30.12%; width:10.02%; }
+  .page-about .t-gemini   { left:78.66%; top:52.19%; width:10.84%; }
+
+  /* ============ 4. SKILLS ============ */
+  .page-about .ab-skills-wrap{ aspect-ratio: 1440 / 712; }
+  .page-about .ab-skills-wrap .ab-h2{ left:9.03%; top:5.62%; }
+
+  .page-about .ab-skill-grid{
+    position:absolute;
+    left:8.96%; top:17.36%; width:72.08%;
+    display:grid;
+    grid-template-columns: 32.64cqw 32.64cqw;
+    column-gap:6.81cqw;
+    row-gap:0;
+  }
+  /* the three rows are unevenly spaced in the design, and the last block
+     spans the left column only, so each row gets its own top margin */
+  .page-about .ab-skill:nth-child(3),
+  .page-about .ab-skill:nth-child(4){ margin-top:4.40cqw; }
+  .page-about .ab-skill:nth-child(5){ margin-top:3.64cqw; }
+  .page-about .ab-skill h3{
+    font-family:'Poppins', sans-serif; font-weight:700;
+    font-size:1.806cqw; line-height:1.2; color:var(--ink);
+    margin:0 0 1.35cqw; letter-spacing:0.005em;
+  }
+  .page-about .ab-skill p{
+    font-family:'Poppins', sans-serif; font-weight:400;
+    font-size:1.389cqw; line-height:1.4; color:#35302f;
+    margin:0;
+  }
+  /* the last block sits alone on its row, and in the design its lines run
+     past the column into the empty space beside it */
+  .page-about .ab-skill:nth-child(5) p{ width:42cqw; }
+
+  .page-about .ab-chibi{
+    position:absolute;
+    left:80.69%; top:8.29%; width:17.43%; height:auto;
+  }
+
+  /* The footer is the homepage's, untouched — but the homepage sets a 90px
+     gap above it, and in this design the dark band starts straight after the
+     skills block. Page-scoped, so the homepage keeps its gap. */
+  .page-about .site-footer{ margin-top:0; }
+
+  /* ============================================================
+     TABLET / MOBILE
+     Below 1100px the fixed compositions stop scaling and start
+     flowing. The pieces keep their order, their overlap and their
+     tilt — the page is re-stacked, not redrawn.
+     ============================================================ */
+  @media (max-width: 1100px){
+
+    /* ---- hero ---- */
+    .page-about .ab-hero{
+      background:url('assets/images/about/hero-band.png') center center / cover no-repeat;
+      background-color:#CE4A8E;
+      padding:clamp(104px, 14vw, 140px) 6vw clamp(40px, 6vw, 64px);
+    }
+    .page-about .ab-hero-stage{
+      aspect-ratio:auto; container-type:normal;
+      max-width:720px;
+      display:flex; flex-direction:column; align-items:flex-start;
+    }
+    .page-about .ab-band{ display:none; }
+    .page-about .ab-photo{
+      display:block; position:static;
+      width:min(58%, 260px); height:auto;
+      margin:0 0 clamp(14px, 2.6vw, 22px) auto;
+      filter:drop-shadow(0 14px 26px rgba(40,10,25,0.35));
+    }
+    .page-about .ab-hero-stage > *:not(.ab-band){ position:static; }
+    .page-about .ab-title{
+      width:auto; height:auto;
+      display:inline-flex; align-self:flex-start;
+      padding:clamp(12px,2.2vw,18px) clamp(18px,3.4vw,28px);
+      border-radius:14px; margin-bottom:clamp(20px,3.4vw,30px);
+      box-shadow:0 14px 26px -14px rgba(40,10,25,0.45);
+    }
+    .page-about .ab-title span{
+      font-size:clamp(1.9rem, 6.4vw, 3rem); transform:none;
+      white-space:normal;
+    }
+    .page-about .ab-intro{ width:100%; }
+    .page-about .ab-intro h2{
+      font-size:clamp(1.15rem, 3.2vw, 1.45rem); margin-bottom:16px;
+    }
+    .page-about .ab-intro p{
+      font-size:clamp(0.95rem, 2.1vw, 1.06rem); margin-bottom:18px;
+    }
+
+    /* ---- experience ---- */
+    /* the note keeps riding up onto the pink here too, so the collage reads
+       the same way it does on desktop */
+    .page-about .ab-exp{ padding:0 6vw 0; }
+    .page-about .ab-note{ margin-top:calc(-1 * clamp(60px, 9vw, 90px)); }
+    .page-about .ab-exp-wrap{
+      aspect-ratio:auto; container-type:normal;
+      max-width:720px;
+      display:flex; flex-direction:column; gap:clamp(26px,4.4vw,40px);
+    }
+    .page-about .ab-note{
+      position:relative; left:auto; top:auto;
+      width:min(78%, 380px); align-self:flex-start;
+      margin-left:-6%;
+    }
+    .page-about .ab-note-label{
+      left:24%; top:46%;
+      font-size:clamp(1.5rem, 6.2vw, 2.3rem);
+    }
+    .page-about .ab-table{
+      position:relative; left:auto; top:auto; width:100%;
+    }
+    .page-about .ab-row{
+      grid-template-columns:1fr;
+      gap:2px;
+      padding-bottom:16px; border-bottom:1px solid rgba(31,21,20,0.10);
+    }
+    .page-about .ab-row + .ab-row{ margin-top:18px; }
+    .page-about .ab-row-head{ display:none; }
+    .page-about .ab-row .ab-c1{ font-size:clamp(1.05rem, 3.2vw, 1.3rem); }
+    .page-about .ab-row .ab-c2{ font-size:clamp(0.92rem, 2.4vw, 1rem); }
+    .page-about .ab-row .ab-c2 br{ display:none; }
+    .page-about .ab-row .ab-c3{
+      font-size:clamp(0.8rem, 2.1vw, 0.88rem); color:#6a615e; white-space:normal;
+    }
+
+    /* ---- tool kit ---- */
+    .page-about .ab-tools{ padding:clamp(50px,8vw,80px) 6vw 0; }
+    .page-about .ab-tools-wrap{
+      aspect-ratio:auto; container-type:normal; max-width:720px;
+    }
+    .page-about .ab-tools-wrap .ab-h2{
+      position:static; font-size:clamp(1.5rem, 5vw, 2.1rem);
+      margin:0 0 clamp(16px,2.6vw,24px);
+    }
+    /* the tray keeps its shape; the icons ride it as a 5x2 grid so they
+       never collide once the tray gets narrow */
+    .page-about .ab-tray{ position:relative; left:auto; top:auto; width:100%; }
+    .page-about .ab-tool-list{
+      position:absolute; inset:14% 7% 12%;
+      display:grid; grid-template-columns:repeat(5, 1fr); grid-template-rows:repeat(2, 1fr);
+      align-items:center; justify-items:center; gap:2%;
+    }
+    .page-about .ab-tool{
+      position:static; width:auto; max-width:82%; max-height:100%;
+    }
+    .page-about .ab-tool-list li{ display:flex; align-items:center; justify-content:center; width:100%; height:100%; }
+
+    /* ---- skills ---- */
+    .page-about .ab-skills{ padding:clamp(50px,8vw,80px) 6vw clamp(50px,8vw,80px); }
+    .page-about .ab-skills-wrap{
+      aspect-ratio:auto; container-type:normal; max-width:720px;
+    }
+    .page-about .ab-skills-wrap .ab-h2{
+      position:static; font-size:clamp(1.5rem, 5vw, 2.1rem);
+      margin:0 0 clamp(18px,3vw,28px);
+    }
+    .page-about .ab-skill-grid{
+      position:static; width:100%;
+      grid-template-columns:1fr; column-gap:0; row-gap:clamp(22px,3.6vw,32px);
+    }
+    .page-about .ab-skill:nth-child(3),
+    .page-about .ab-skill:nth-child(4),
+    .page-about .ab-skill:nth-child(5){ margin-top:0; }
+    .page-about .ab-skill h3{
+      font-size:clamp(1rem, 3vw, 1.15rem); margin-bottom:8px;
+    }
+    .page-about .ab-skill p{ font-size:clamp(0.92rem, 2.3vw, 1.02rem); }
+    /* the character stays part of the page rather than being dropped —
+       it moves to the end of the list and keeps its scale */
+    .page-about .ab-chibi{
+      position:static; width:min(46%, 200px); height:auto;
+      margin:clamp(26px,4vw,40px) 0 0 auto;
+    }
+  }
+
+  @media (max-width: 640px){
+    .page-about .ab-note{ width:min(90%, 320px); margin-left:-8%; }
+    .page-about .ab-tool-list{
+      grid-template-columns:repeat(5, 1fr);
+      inset:16% 6% 14%;
+    }
+    .page-about .ab-chibi{ width:min(56%, 180px); }
+  }
