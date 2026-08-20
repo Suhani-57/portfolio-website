@@ -39,7 +39,7 @@
       desc:"Visual Design for a Music & Entertainment Platform — Music Artwork, Campaigns, Thumbnails.",
       chips:["Graphic Design","Music Artwork"],
       pill:"#CC4062", mark:"assets/images/works/wordmark-hoopr.png", markW:"32%",
-      card:"assets/images/works/card-hoopr.png" },
+      card:"assets/images/works/card-hoopr.png", url:"hoopr.html" },
     { name:"Fluence", tag:"Branding", icon:"F", c1:"#FF9FC0", c2:"#E4568F",
       desc:"Visual Identity for a Water-Based Skincare Brand — Logo System, Packaging, Typography & Brand Applications.",
       chips:["Branding","Logo System"], url:"fluence.html",

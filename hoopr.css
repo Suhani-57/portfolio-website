@@ -1,0 +1,381 @@
+/* ============================================================
+   HOOPR — MUSIC ARTWORKS
+   Scoped to body.page-hoopr. Loaded after styles.css, which supplies
+   the nav, footer, toast and reveal system. Nothing here targets a
+   shared class without the .page-hoopr prefix, so no existing page
+   can be affected by this file.
+
+   Geometry is measured off the 1440-wide export in Hoopr page/1.png.
+   The page is one container-query context, so positions in % and type
+   in cqw scale together and the composition holds at any width.
+   ============================================================ */
+
+  .page-hoopr{ background:#fff; }
+  .page-hoopr .hp-main{
+    position:relative;
+    width:100%;
+    /* The design frame is 1440, but held at 1440 the page reads oversized.
+       Every position is a % and every type size a cqw of this width, so
+       lowering it scales the whole composition down together and keeps the
+       measured relationships intact. The footer is full-bleed from
+       styles.css and is deliberately left out of it. */
+    max-width:1200px; margin-inline:auto;
+    container-type: inline-size;
+    /* not clipped here: the vinyl has to bleed past this column to the
+       screen edge. body already carries overflow-x:hidden. */
+    overflow:visible;
+  }
+
+  /* ============ 1. HERO ============ */
+  .page-hoopr .hp-hero{
+    position:relative;
+    /* card top 156 .. featured-works bottom 978, measured off the export */
+    padding: 5.42cqw 0 3.2cqw;
+  }
+
+  /* --- the vinyl ---
+     Supplied pre-cropped exactly as it appears in the design, already cut by
+     the left edge and carrying its own pink outline ring. It sits still on
+     its own absolutely positioned layer, so it takes no part in the flow and
+     cannot shift anything around it.
+     Measured: its ink spans design x 0..556, y 141..1093, which puts the
+     element box at 0,34 and 655.6px wide. */
+  .page-hoopr .hp-vinyl{
+    position:absolute;
+    /* The record is cut by the SCREEN edge in the export, not by this
+       1200 column, so it is pulled out of the column to viewport x 0.
+       Below 1200 the column is the viewport and this resolves to 0. */
+    left:calc((100% - 100vw) / 2); top:-2.78cqw;
+    width:45.53cqw; height:auto;
+    pointer-events:none;
+    z-index:0;
+  }
+  .page-hoopr .hp-vinyl img{ width:100%; height:auto; display:block; }
+
+  .page-hoopr .hp-hero-copy{
+    position:relative; z-index:1;
+    margin-left:41.53%;                 /* design x 598 */
+    width:49.44%;                       /* design 712 wide */
+  }
+  .page-hoopr .hp-title{
+    font-family:'Peace Sans','Poppins',sans-serif; font-weight:400;
+    font-size:9.03cqw; line-height:0.94; color:#FF3D6E;
+    margin:0 0 1.6cqw; letter-spacing:0.005em;
+  }
+  .page-hoopr .hp-meta{
+    display:grid; grid-template-columns: 1.58fr 1.28fr 1.6fr;
+    gap:0 0.9cqw; margin-bottom:1.1cqw;
+  }
+  .page-hoopr .hp-meta h2,
+  .page-hoopr .hp-meta-role h2{
+    font-family:'Poppins',sans-serif; font-weight:600;
+    font-size:1.18cqw; line-height:1.35; color:#FF3D6E; margin:0 0 0.25cqw;
+  }
+  .page-hoopr .hp-meta p,
+  .page-hoopr .hp-meta-role p{
+    font-family:'Poppins',sans-serif; font-weight:400;
+    font-size:1.18cqw; line-height:1.45; color:var(--ink); margin:0;
+  }
+  .page-hoopr .hp-meta-role{ margin-bottom:1.5cqw; }
+
+  /* --- Featured Works ---
+     The chrome above is the supplied crop; the strip below is a live
+     carousel of every artwork, sharing the playlist scroller. */
+  .page-hoopr .hp-featured{ width:100%; }
+  .page-hoopr .hp-featured-head{ width:100%; height:auto; display:block; }
+  .page-hoopr .hp-featured-body{
+    background:#FF3768;
+    border-radius:0 0 1.67cqw 1.67cqw;
+    margin-top:-0.1cqw;                 /* close the antialias seam */
+    padding:1.67cqw 0 2.43cqw 1.53cqw;  /* 24 top / 35 bottom / 22 left */
+  }
+  .page-hoopr .hp-row-featured{ gap:0.56cqw; padding-right:4.6cqw; }
+  .page-hoopr .hp-row-featured .hp-thumb{
+    height:10.21cqw;                    /* 147px @1440 */
+    border-radius:0.7cqw;
+  }
+  .page-hoopr .hp-featured .hp-arrow{
+    background:transparent; color:#fff;
+    border:0.16cqw solid #fff;
+    box-shadow:none;
+    top:5.1cqw;
+    width:2.85cqw; height:2.85cqw;
+  }
+  .page-hoopr .hp-featured .hp-arrow svg{ width:1.35cqw; height:1.35cqw; }
+  .page-hoopr .hp-featured .hp-arrow:hover{ background:rgba(255,255,255,0.18); }
+
+  /* ============ 2. NOW YOU'RE LISTENING TO ============ */
+  .page-hoopr .hp-intro{
+    position:relative; z-index:1;
+    margin-left:10.76%;                 /* design x 155 */
+    width:82.29%;                       /* design 1185 wide */
+    padding-top:9.1cqw;                 /* heading lands on design y 1120 */
+  }
+  .page-hoopr .hp-intro-head{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:2cqw; margin-bottom:2.6cqw;
+  }
+  .page-hoopr .hp-intro-head h2,
+  .page-hoopr .hp-playing-head{
+    font-family:'Peace Sans','Poppins',sans-serif; font-weight:400;
+    font-size:6.25cqw; line-height:1.02; color:#FF3D6E;
+    margin:0; text-transform:uppercase; letter-spacing:0.005em;
+  }
+  /* natural size, 236px in the design, sitting 74px in from the column's
+     right edge where the export places it */
+  .page-hoopr .hp-disc{
+    width:16.39cqw; height:auto; flex-shrink:0;
+    margin-top:-1.34cqw; margin-right:5.14cqw;
+  }
+
+  .page-hoopr .hp-intro p{
+    font-family:'Poppins',sans-serif; font-weight:400;
+    font-size:1.39cqw; line-height:1.5; color:var(--ink);
+    margin:0 0 1.55cqw;
+  }
+  .page-hoopr .hp-intro .hp-just{ text-align:justify; }
+  .page-hoopr .hp-intro .hp-pink{ color:#FF3D6E; }
+  .page-hoopr .hp-intro .hp-tight{ margin-bottom:0; }
+  .page-hoopr .hp-intro h3{
+    font-family:'Poppins',sans-serif; font-weight:600;
+    font-size:1.94cqw; line-height:1.3; color:var(--ink);
+    margin:2.2cqw 0 1.5cqw;
+  }
+
+  /* ============ 3. NOW PLAYING ============ */
+  .page-hoopr .hp-playing{
+    position:relative; z-index:1;
+    margin-left:10.07%;                 /* design x 145, the card column */
+    width:79.86%;                       /* design 1150 wide */
+    padding-top:9.3cqw;                 /* heading lands on design y 2156 */
+    padding-bottom:8.1cqw;              /* footer lands on design y 6556 */
+  }
+  .page-hoopr .hp-playing-head{ margin-bottom:3.3cqw; }
+
+  .page-hoopr .hp-lists{ display:flex; flex-direction:column; gap:4.03cqw; }
+
+  /* --- one playlist card: header image over a flat body --- */
+  .page-hoopr .hp-card{
+    border-radius:1.6cqw; overflow:hidden;
+    box-shadow:0 1.1cqw 2.4cqw -1.2cqw rgba(60,40,50,0.18);
+  }
+  .page-hoopr .hp-card-head{ width:100%; height:auto; display:block; }
+  /* 43 top / 72 bottom around a 325 row makes the 440 body the export has */
+  .page-hoopr .hp-card-body{ padding:2.99cqw 2.57cqw 5.0cqw; }
+
+  /* body fills sampled from the export */
+  .page-hoopr .hp-card-indian-pop  .hp-card-body{ background:#FFD2DD; }
+  .page-hoopr .hp-card-indian-folk .hp-card-body{ background:#FFE0CD; }
+  .page-hoopr .hp-card-bhojpuri    .hp-card-body{ background:#F7E0FF; }
+  .page-hoopr .hp-card-ambient     .hp-card-body{ background:#E0F3FF; }
+  .page-hoopr .hp-card-beyond      .hp-card-body{ background:#FFF8E0; }
+
+  /* --- the thumbnail row --- */
+  .page-hoopr .hp-scroll-wrap{ position:relative; }
+  .page-hoopr .hp-row{
+    display:flex; align-items:flex-start; gap:1.39cqw;
+    overflow-x:auto; overflow-y:hidden;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+    padding-right:5.5cqw;              /* room for the arrow */
+  }
+  .page-hoopr .hp-row::-webkit-scrollbar{ display:none; }
+  .page-hoopr .hp-row.dragging{ scroll-behavior:auto; cursor:grabbing; }
+
+  /* Every artwork is a button. Height is fixed and width follows the
+     artwork's own aspect, which is how the export lays them out. */
+  .page-hoopr .hp-thumb{
+    flex:0 0 auto; padding:0; border:0; background:none;
+    height:22.57cqw;                    /* 325px @1440 */
+    border-radius:1.11cqw; overflow:hidden;
+    cursor:pointer; display:block;
+    box-shadow:0 0.7cqw 1.4cqw -0.7cqw rgba(40,20,30,0.35);
+    transition: transform .28s var(--ease), box-shadow .28s var(--ease), filter .28s var(--ease);
+  }
+  .page-hoopr .hp-thumb img{
+    height:100%; width:auto; display:block; border-radius:inherit;
+    -webkit-user-drag:none; user-select:none;
+  }
+  /* the hover cue: enough to read as clickable, not enough to disturb the
+     artwork or resize the card */
+  .page-hoopr .hp-thumb:hover,
+  .page-hoopr .hp-thumb:focus-visible{
+    transform:translateY(-0.42cqw) scale(1.018);
+    box-shadow:0 1.3cqw 2.2cqw -0.8cqw rgba(40,20,30,0.45);
+    filter:brightness(1.04);
+    outline:none;
+  }
+  .page-hoopr .hp-thumb:focus-visible{ box-shadow:0 0 0 0.28cqw rgba(255,61,110,0.75); }
+  .page-hoopr .hp-thumb.is-open{ transform:translateY(-0.42cqw) scale(1.018); }
+
+  /* --- the scroll arrow --- */
+  .page-hoopr .hp-arrow{
+    position:absolute; right:0.4cqw; top:11.28cqw;   /* centred on the row */
+    transform:translateY(-50%);
+    width:3.75cqw; height:3.75cqw; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.92); color:var(--ink);
+    border:0.14cqw solid rgba(255,255,255,0.9); cursor:pointer;
+    box-shadow:0 0.55cqw 1.1cqw -0.4cqw rgba(40,20,30,0.35);
+    transition: transform .25s var(--ease), background .25s var(--ease);
+  }
+  .page-hoopr .hp-arrow svg{ width:1.8cqw; height:1.8cqw; }
+  .page-hoopr .hp-arrow:hover{ transform:translateY(-50%) scale(1.08); background:#fff; }
+  .page-hoopr .hp-arrow.at-end svg{ transform:scaleX(-1); }
+
+  /* --- the expansion panel --- */
+  .page-hoopr .hp-panel{
+    overflow:hidden; height:0;
+    transition: height .45s var(--ease);
+  }
+  .page-hoopr .hp-panel.open{ height:auto; }
+  .page-hoopr .hp-detail{
+    padding-top:2.4cqw;
+    animation: hpFade .4s var(--ease) both;
+  }
+  @keyframes hpFade{ from{ opacity:0; transform:translateY(0.7cqw); } to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){
+    .page-hoopr .hp-detail{ animation:none; }
+    .page-hoopr .hp-panel{ transition:none; }
+  }
+
+  .page-hoopr .hp-detail-title{
+    font-family:'Peace Sans','Poppins',sans-serif; font-weight:400;
+    font-size:2.71cqw; line-height:1.1; color:#FF3D6E;
+    text-align:center; margin:0 0 1.6cqw;
+  }
+  .page-hoopr .hp-detail-art{
+    display:block; width:100%; max-width:42.4cqw; height:auto;
+    margin:0 auto 1.9cqw; border-radius:0.9cqw;
+    box-shadow:0 1.1cqw 2.2cqw -1cqw rgba(40,20,30,0.3);
+  }
+  .page-hoopr .hp-detail h4{
+    font-family:'Poppins',sans-serif; font-weight:600;
+    font-size:1.25cqw; line-height:1.3; color:#C8437F;
+    margin:1.3cqw 0 0.35cqw; letter-spacing:0.01em;
+  }
+  .page-hoopr .hp-detail h4:first-of-type{ margin-top:0; }
+  .page-hoopr .hp-detail p{
+    font-family:'Poppins',sans-serif; font-weight:400;
+    font-size:1.11cqw; line-height:1.5; color:var(--ink);
+    margin:0 0 0.55cqw;
+  }
+  .page-hoopr .hp-tools{ margin-top:1.1cqw; }
+  .page-hoopr .hp-tools span{ color:#C8437F; font-weight:500; }
+
+  /* ============ 4. PROJECT NAVIGATION (Back / Next Project) ============
+     The same component as the Fluence page, in the same place: between the
+     end of the case study and the footer. The button itself is Fluence's
+     rule set verbatim, so the two pages render an identical control.
+     Only the frame differs, because the pages have different measures —
+     the inner row repeats .hp-playing's column exactly, so Back lines up
+     with the left edge of the playlist cards above it and Next Project
+     with their right edge, the same relationship Fluence has to its body
+     copy. Vertical spacing is entirely inherited: .hp-playing's existing
+     padding-bottom above, .site-footer's existing margin-top below. */
+  .page-hoopr .hp-projnav{
+    position:relative; z-index:1;
+    width:100%; max-width:1200px; margin-inline:auto;
+  }
+  .page-hoopr .hp-projnav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:clamp(12px, 2vw, 40px);
+    margin-left:10.07%;                 /* the card column, as .hp-playing */
+    width:79.86%;
+  }
+  .page-hoopr .hp-projbtn{
+    box-sizing:border-box;
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:clamp(120px, 10.4vw, 200px);   /* 200 @1920 */
+    min-height:clamp(42px, 2.6vw, 50px);     /*  50 @1920 */
+    padding:clamp(10px, 0.73vw, 14px) clamp(16px, 1.5vw, 28px);
+    border:0; border-radius:999px;
+    background:var(--navy); color:#fff;
+    font-family:'Poppins', sans-serif;
+    font-size:clamp(0.88rem, 0.885vw, 17px);
+    font-weight:500; line-height:1.2; text-align:center; white-space:nowrap;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  @media (hover:hover) and (pointer:fine){
+    .page-hoopr a.hp-projbtn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 22px -12px rgba(42, 36, 82, 0.75);
+    }
+  }
+
+  /* ============================================================
+     TABLET / MOBILE
+     The composition stops scaling and starts flowing. Hierarchy,
+     colours, artwork proportions and the whole interaction system
+     are unchanged — only the column widths and type sizes adapt.
+     ============================================================ */
+  @media (max-width: 1100px){
+    /* overflow-x:clip rather than hidden: it clips the decorative vinyl
+       without turning the column into a scroll container. Desktop keeps
+       overflow:visible so the record can bleed to the screen edge. */
+    .page-hoopr .hp-main{ container-type:normal; overflow-x:clip; }
+
+    .page-hoopr .hp-hero{ padding:clamp(90px,13vw,130px) 6vw clamp(26px,4vw,40px); }
+    .page-hoopr .hp-vinyl{
+      left:auto; right:-38vw; top:clamp(70px,11vw,110px);
+      width:76vw; height:76vw; opacity:0.5;
+    }
+    .page-hoopr .hp-hero-copy{ margin-left:0; width:100%; max-width:720px; }
+    .page-hoopr .hp-title{ font-size:clamp(2.6rem,10vw,4.4rem); margin-bottom:22px; }
+    .page-hoopr .hp-meta{ grid-template-columns:1fr 1fr; gap:14px 18px; margin-bottom:16px; }
+    .page-hoopr .hp-meta h2,
+    .page-hoopr .hp-meta-role h2{ font-size:clamp(0.86rem,2.2vw,0.95rem); }
+    .page-hoopr .hp-meta p,
+    .page-hoopr .hp-meta-role p{ font-size:clamp(0.86rem,2.2vw,0.95rem); }
+    .page-hoopr .hp-meta-role{ margin-bottom:22px; }
+
+    .page-hoopr .hp-featured-body{
+      border-radius:0 0 14px 14px; margin-top:-1px;
+      padding:16px 0 20px 14px;
+    }
+    .page-hoopr .hp-row-featured{ gap:8px; padding-right:clamp(46px,9vw,64px); }
+    .page-hoopr .hp-row-featured .hp-thumb{ height:clamp(96px,22vw,150px); border-radius:8px; }
+    .page-hoopr .hp-featured .hp-arrow{
+      top:50%; width:clamp(30px,6vw,40px); height:clamp(30px,6vw,40px); border-width:2px;
+    }
+    .page-hoopr .hp-featured .hp-arrow svg{ width:clamp(14px,2.8vw,18px); height:clamp(14px,2.8vw,18px); }
+
+    .page-hoopr .hp-intro{ margin-left:0; width:100%; max-width:720px; padding:0 6vw; margin-inline:auto; }
+    .page-hoopr .hp-intro-head{ margin-bottom:26px; }
+    .page-hoopr .hp-intro-head h2{ font-size:clamp(1.9rem,7vw,3rem); }
+    .page-hoopr .hp-disc{ width:clamp(72px,14vw,130px); }
+    .page-hoopr .hp-intro p{ font-size:clamp(0.95rem,2.4vw,1.06rem); margin-bottom:16px; }
+    .page-hoopr .hp-intro .hp-just{ text-align:left; }
+    .page-hoopr .hp-intro h3{ font-size:clamp(1.15rem,3.4vw,1.5rem); margin:26px 0 16px; }
+
+    .page-hoopr .hp-playing{
+      margin-left:0; width:100%; max-width:760px; margin-inline:auto;
+      padding:clamp(30px,5vw,50px) 4vw clamp(50px,8vw,80px);
+    }
+    .page-hoopr .hp-playing-head{ font-size:clamp(1.9rem,7vw,3rem); margin-bottom:26px; padding-inline:2vw; }
+    /* the nav follows the same flowed column as the cards above it */
+    .page-hoopr .hp-projnav-inner{
+      margin-left:0; width:100%; max-width:760px; margin-inline:auto;
+      padding-inline:4vw;
+    }
+    .page-hoopr .hp-lists{ gap:clamp(26px,4.5vw,44px); }
+
+    .page-hoopr .hp-card{ border-radius:18px; }
+    .page-hoopr .hp-card-body{ padding:clamp(18px,3.4vw,30px) clamp(16px,3vw,28px) clamp(20px,3.6vw,32px); }
+    .page-hoopr .hp-row{ gap:14px; padding-right:clamp(52px,9vw,74px); }
+    .page-hoopr .hp-thumb{ height:clamp(150px,34vw,260px); border-radius:12px; }
+    .page-hoopr .hp-thumb:hover,
+    .page-hoopr .hp-thumb:focus-visible,
+    .page-hoopr .hp-thumb.is-open{ transform:translateY(-4px) scale(1.018); }
+    .page-hoopr .hp-arrow{
+      right:4px; top:clamp(75px,17vw,130px);
+      width:clamp(36px,7vw,48px); height:clamp(36px,7vw,48px); border-width:2px;
+    }
+    .page-hoopr .hp-arrow svg{ width:clamp(17px,3.2vw,22px); height:clamp(17px,3.2vw,22px); }
+
+    .page-hoopr .hp-detail{ padding-top:22px; }
+    .page-hoopr .hp-detail-title{ font-size:clamp(1.3rem,4.6vw,2rem); margin-bottom:18px; }
+    .page-hoopr .hp-detail-art{ max-width:min(100%, 420px); margin-bottom:20px; border-radius:10px; }
+    .page-hoopr .hp-detail h4{ font-size:clamp(0.88rem,2.4vw,1rem); margin:16px 0 5px; }
+    .page-hoopr .hp-detail p{ font-size:clamp(0.88rem,2.3vw,0.98rem); margin-bottom:7px; }
+  }
