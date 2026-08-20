@@ -49,7 +49,7 @@
       desc:"Redesigning a hidden-gem discovery app end to end, from user flows to final UI.",
       chips:["UI/UX","Case Study"],
       pill:"#893E1E", mark:"assets/images/works/wordmark-unseen.png", markW:"47.2%",
-      card:"assets/images/works/card-unseen.png" },
+      card:"assets/images/works/card-unseen.png", url:"unseen.html" },
     { name:"Dor", tag:"Digital experience", icon:"D", c1:"#E98C7B", c2:"#B94836",
       desc:"An interactive, story-driven microsite built around a single evocative idea.",
       chips:["Interactive","Story-driven"],

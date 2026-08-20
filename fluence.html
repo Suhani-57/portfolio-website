@@ -219,13 +219,10 @@
 <!-- ============ PROJECT NAVIGATION — closes the case study ============ -->
 <nav class="fl-projnav fl-reveal" aria-label="Project navigation">
   <a class="fl-projbtn" href="index.html#work">Back</a>
-  <!-- Unseen is the next project in the Selected Work order, but it has no
-       page yet. Rendered as an aria-disabled button rather than a link so it
-       is announced as unavailable instead of pointing at a dead route.
-       When unseen.html exists this becomes <a href="unseen.html">. -->
-  <button type="button" class="fl-projbtn fl-projbtn-pending" aria-disabled="true">
-    Next Project<span class="fl-sr-only"> — Unseen, coming soon</span>
-  </button>
+  <!-- Unseen is the next project in the Selected Work order. Its page now
+       exists, so this is a real link (it was an aria-disabled button while
+       unseen.html was still missing). -->
+  <a class="fl-projbtn" href="unseen.html">Next Project</a>
 </nav>
 
 <!-- ================= 22. FOOTER ================= -->

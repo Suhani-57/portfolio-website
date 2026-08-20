@@ -1,0 +1,379 @@
+/* ============================================================
+   UNSEEN — case study page
+   Page-local styles only. Everything here is scoped to
+   .page-unseen so the shared stylesheet, the nav, the footer,
+   the reveal system and every other page are untouched.
+
+   The supplied export is a 1188-wide frame. The page is held to
+   a 1200 column and every position is a % of that column, every
+   type size a cqw of it, so the composition scales as one piece.
+   1 design px at 1188 = 0.08418cqw.
+   ============================================================ */
+
+.page-unseen{ background:#fff; }
+
+.page-unseen .un-main{
+  position:relative;
+  width:100%;
+  max-width:1200px;
+  margin-inline:auto;
+  container-type: inline-size;
+  font-family:'Poppins', sans-serif;
+  color:#26211F;
+  --un-brown:#893E1E;
+  --un-black:#141210;
+}
+
+/* ---------- the two measures the export uses ----------
+   Body copy sits in an 81.1% column; the photographic bands run
+   wider at 89.6%; the hero card is widest at 91.6%. */
+.page-unseen .un-text{ width:81.1%; margin-inline:auto; }
+.page-unseen .un-band{ display:block; width:89.6%; height:auto; margin-inline:auto; }
+
+.page-unseen .un-sec{ position:relative; }
+
+/* ---------- type ---------- */
+.page-unseen .un-main p{
+  font-size:1.42cqw; line-height:1.55; font-weight:300;
+  margin:0 0 0.55cqw;
+}
+.page-unseen .un-just{ text-align:justify; }
+.page-unseen .un-em{ color:var(--un-brown); font-weight:500; }
+
+.page-unseen .un-h-brown{
+  color:var(--un-brown); font-weight:600; font-size:1.85cqw;
+  letter-spacing:0.01em; margin:0 0 1.1cqw;
+}
+.page-unseen .un-h-black{
+  color:var(--un-black); font-weight:600; font-size:1.85cqw;
+  margin:0 0 0.9cqw;
+}
+.page-unseen .un-h-center{ text-align:center; margin-inline:auto; }
+
+/* ============ 1. HERO ============ */
+.page-unseen .un-hero{ padding-top:4.7cqw; }
+
+.page-unseen .un-hero-card{
+  display:block; width:91.6%; height:auto; margin-inline:auto;
+}
+
+.page-unseen .un-wordmark{
+  font-family:'Lora', Georgia, serif;
+  font-weight:500; font-size:6.2cqw; line-height:1.05;
+  letter-spacing:0.06em;
+  color:var(--un-brown);
+  text-align:center;
+  margin:3.0cqw 0 0;
+}
+.page-unseen .un-tagline{
+  text-align:center; font-size:1.45cqw; font-weight:300;
+  color:#26211F;
+  margin:1.2cqw 0 0;
+}
+.page-unseen .un-hero .un-text{ margin-top:2.6cqw; }
+
+/* --- project metadata --- */
+.page-unseen .un-meta{ width:81.1%; margin:2.2cqw auto 0; }
+.page-unseen .un-meta h2{
+  color:var(--un-brown); font-size:1.5cqw; font-weight:600;
+  margin:0 0 0.5cqw;
+}
+.page-unseen .un-meta p{ font-size:1.42cqw; font-weight:300; margin:0; }
+.page-unseen .un-meta-row{
+  display:grid; grid-template-columns:31.1% 28.0% 1fr;
+  padding-left:7.9%;
+}
+.page-unseen .un-meta-role{
+  display:grid; grid-template-columns:55.3% 1fr;
+  padding-left:7.9%; margin-top:1.5cqw;
+}
+.page-unseen .un-meta-note{
+  color:var(--un-brown); font-weight:500; align-self:end;
+}
+
+/* ============ 2. MUMBAI ============ */
+.page-unseen .un-sec:nth-of-type(2){ margin-top:5.5cqw; }
+
+/* ============ 3. OVERVIEW / THE PROBLEM ============ */
+.page-unseen .un-sec:nth-of-type(3){ margin-top:5.0cqw; }
+.page-unseen .un-h-problem{ margin-top:4.5cqw; }
+.page-unseen .un-hmw-label{
+  color:var(--un-brown); font-weight:400; margin:1.3cqw 0 0.2cqw;
+}
+
+/* ============ 4. RESEARCH ============ */
+.page-unseen .un-sec:nth-of-type(4){ margin-top:6.2cqw; }
+.page-unseen .un-research{
+  display:block; width:88.6%; height:auto; margin-inline:auto;
+}
+
+/* ============ 5. COMPETITIVE ANALYSIS ============ */
+.page-unseen .un-sec:nth-of-type(5){ margin-top:4.7cqw; }
+.page-unseen .un-compet{
+  display:block; width:85.5%; height:auto; margin:4.7cqw auto 0;
+}
+.page-unseen .un-h-found{ margin-top:4.9cqw; }
+.page-unseen .un-found-note{
+  color:var(--un-brown); font-weight:500; margin-top:1.2cqw;
+}
+
+/* ============ 6. PRIMARY RESEARCH ============ */
+.page-unseen .un-sec:nth-of-type(6){ margin-top:7.2cqw; }
+.page-unseen .un-research-grid{
+  display:grid; grid-template-columns:41% 59%;
+  align-items:start;
+  margin-top:1.7cqw;
+}
+.page-unseen .un-compass{
+  display:block; width:88%; height:auto; margin-top:2.4cqw;
+}
+.page-unseen .un-research-copy{ padding-top:0.4cqw; }
+.page-unseen .un-h-key{ margin-top:5.4cqw; }
+
+/* the key findings run down a single hairline with a dot per point */
+.page-unseen .un-findings{
+  list-style:none; margin:0; padding:0;
+  position:relative;
+}
+.page-unseen .un-findings::before{
+  content:""; position:absolute;
+  left:0.72cqw; top:0.9cqw; bottom:1.4cqw;
+  width:0.09cqw; background:#B9A79E;
+}
+.page-unseen .un-findings li{
+  position:relative; padding-left:3.1cqw;
+  font-size:1.42cqw; line-height:1.5; font-weight:300;
+  margin-bottom:2.1cqw;
+}
+.page-unseen .un-findings li:last-child{ margin-bottom:0; }
+.page-unseen .un-findings li::before{
+  content:""; position:absolute; left:0; top:0.28cqw;
+  width:1.5cqw; height:1.5cqw; border-radius:50%;
+  background:var(--un-brown);
+}
+
+/* ============ 7. PERSONAS ============ */
+.page-unseen .un-sec:nth-of-type(7){ margin-top:11.3cqw; }
+/* the boards alternate down the page exactly as the export staggers them */
+.page-unseen .un-persona{
+  display:block; width:63.5%; height:auto;
+  margin-top:2.9cqw;
+}
+.page-unseen .un-persona:first-of-type{ margin-top:5.4cqw; }
+.page-unseen .un-left { margin-left:10.2%;  margin-right:auto; }
+.page-unseen .un-right{ margin-left:auto;   margin-right:7.6%; }
+
+/* ============ 8. USER JOURNEY ============ */
+.page-unseen .un-sec:nth-of-type(8){ margin-top:8.6cqw; }
+.page-unseen .un-journey{
+  display:block; width:65.1%; height:auto;
+  margin-top:4.9cqw;
+}
+.page-unseen .un-journey:first-of-type{ margin-top:5.0cqw; }
+
+/* ============ 9. PROBLEM DEFINITION / HOW MIGHT WE ============ */
+.page-unseen .un-sec:nth-of-type(9){ margin-top:5.7cqw; }
+.page-unseen .un-center-block p{
+  text-align:center; width:74%; margin-inline:auto;
+}
+.page-unseen .un-h-hmw{ margin-top:3.9cqw; }
+
+/* ============ 10 & 11. WIREFRAMES / HI-FI STRIPS ============
+   The supplied long strips are used whole and sized by HEIGHT, so
+   each screen renders at its intended size and the strip runs far
+   wider than the viewport. The track is max-content and holds two
+   identical copies, so translating it by -50% advances by exactly
+   one copy and the loop lands on the same frame — the seam reads
+   as an ordinary gap between two screens.
+   overflow:hidden keeps the travel inside the band, so the moving
+   strip can never scroll the page.
+   The duration is per strip so both travel at the same speed
+   (~33px/s) despite their different lengths. */
+.page-unseen .un-sec:nth-of-type(10){ margin-top:10.4cqw; }
+.page-unseen .un-sec:nth-of-type(11){ margin-top:10.4cqw; }
+
+.page-unseen .un-strip{
+  --un-strip-h: 34.5cqw;
+  --un-seam: 0px;
+  width:100%;
+  overflow:hidden;
+  margin-top:3.5cqw;
+}
+.page-unseen .un-strip-track{
+  display:flex;
+  width:max-content;
+  gap: var(--un-seam);
+  animation: unMarquee var(--un-strip-dur, 180s) linear infinite;
+  will-change: transform;
+}
+.page-unseen .un-strip-track img{
+  flex:0 0 auto;
+  height: var(--un-strip-h); width:auto; display:block;
+}
+/* 13798 × 960 — an 11px left margin already matches the 13px gap the strip
+   keeps between its own screens, so the two copies meet at the right rhythm. */
+.page-unseen .un-strip-wire{ --un-strip-dur:180s; }
+/* 12931 × 828 — this strip runs flush to both edges, so without a seam the
+   copies would touch. 0.0556 of the height reproduces the 46px gap the strip
+   uses between its own screens. */
+.page-unseen .un-strip-hifi{
+  --un-strip-dur:196s;
+  --un-seam: calc(var(--un-strip-h) * 0.0556);
+}
+.page-unseen .un-strip:hover .un-strip-track{ animation-play-state:paused; }
+
+/* the track is two identical copies plus one seam, so -50% is one copy plus
+   half a seam — the extra half puts copy two exactly where copy one began */
+@keyframes unMarquee{
+  from{ transform:translateX(0); }
+  to  { transform:translateX(calc(-50% - var(--un-seam) / 2)); }
+}
+@media (prefers-reduced-motion: reduce){
+  .page-unseen .un-strip-track{ animation:none; }
+}
+
+/* ============ 12. DESIGN SYSTEM ============ */
+.page-unseen .un-sec:nth-of-type(12){ margin-top:19.0cqw; }
+.page-unseen .un-ds{
+  display:block; width:81.1%; height:auto;
+  margin:4.6cqw auto 0;
+}
+.page-unseen .un-ds:first-of-type{ margin-top:2.6cqw; }
+
+/* ============ 13. INTRODUCING UNSEEN ============ */
+.page-unseen .un-sec:nth-of-type(13){
+  margin-top:15.5cqw;
+  padding-bottom:10.0cqw;
+}
+.page-unseen .un-h-intro{ margin-bottom:3.7cqw; }
+
+/* ============ PROJECT NAVIGATION ============
+   The Fluence rule set verbatim, so the three case studies render
+   an identical control. Only the frame differs: the inner row
+   repeats this page's own text column so Back lines up with the
+   left edge of the body copy and Next Project with its right,
+   the same relationship the other pages have. Vertical spacing is
+   inherited — the section's padding-bottom above, the footer's
+   margin-top below. */
+.page-unseen .un-projnav{
+  position:relative; z-index:1;
+  width:100%; max-width:1200px; margin-inline:auto;
+}
+.page-unseen .un-projnav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:clamp(12px, 2vw, 40px);
+  width:81.1%; margin-inline:auto;
+}
+.page-unseen .un-projbtn{
+  box-sizing:border-box;
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:clamp(120px, 10.4vw, 200px);   /* 200 @1920 */
+  min-height:clamp(42px, 2.6vw, 50px);     /*  50 @1920 */
+  padding:clamp(10px, 0.73vw, 14px) clamp(16px, 1.5vw, 28px);
+  border:0; border-radius:999px;
+  background:var(--navy); color:#fff;
+  font-family:'Poppins', sans-serif;
+  font-size:clamp(0.88rem, 0.885vw, 17px);
+  font-weight:500; line-height:1.2; text-align:center; white-space:nowrap;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+@media (hover:hover) and (pointer:fine){
+  .page-unseen a.un-projbtn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 22px -12px rgba(42, 36, 82, 0.75);
+  }
+}
+/* no destination yet — looks identical, but does not behave like a link */
+.page-unseen .un-projbtn-pending{ cursor:default; }
+.page-unseen .un-sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* ============================================================
+   TABLET / MOBILE
+   The composition stops scaling and starts flowing: the staggered
+   boards square up, the two-column research block stacks and type
+   switches to clamp(). Hierarchy, order, colours and the moving
+   strips are unchanged.
+   ============================================================ */
+@media (max-width: 1100px){
+  .page-unseen .un-main{ container-type:normal; overflow-x:clip; }
+
+  .page-unseen .un-text,
+  .page-unseen .un-meta{ width:100%; padding-inline:6vw; }
+  .page-unseen .un-band,
+  .page-unseen .un-research,
+  .page-unseen .un-compet,
+  .page-unseen .un-hero-card{ width:100%; padding-inline:4vw; }
+
+  .page-unseen .un-hero{ padding-top:clamp(18px,4vw,34px); }
+  .page-unseen .un-main p{ font-size:clamp(0.94rem,2.4vw,1.05rem); margin-bottom:10px; }
+  .page-unseen .un-just{ text-align:left; }
+  .page-unseen .un-wordmark{ font-size:clamp(2.6rem,11vw,4.6rem); margin-top:26px; }
+  .page-unseen .un-tagline{ font-size:clamp(0.95rem,2.6vw,1.1rem); margin-top:12px; padding-inline:6vw; }
+  .page-unseen .un-hero .un-text{ margin-top:22px; }
+
+  .page-unseen .un-h-brown,
+  .page-unseen .un-h-black{ font-size:clamp(1.15rem,4vw,1.5rem); margin-bottom:12px; }
+  .page-unseen .un-meta h2{ font-size:clamp(1rem,3.2vw,1.2rem); margin-bottom:4px; }
+  .page-unseen .un-meta{ margin-top:26px; }
+  .page-unseen .un-meta-row{ grid-template-columns:1fr; gap:16px; padding-left:0; }
+  .page-unseen .un-meta-role{ grid-template-columns:1fr; gap:10px; padding-left:0; margin-top:16px; }
+
+  .page-unseen .un-sec:nth-of-type(2){ margin-top:clamp(30px,6vw,56px); }
+  .page-unseen .un-sec:nth-of-type(3),
+  .page-unseen .un-sec:nth-of-type(4),
+  .page-unseen .un-sec:nth-of-type(5),
+  .page-unseen .un-sec:nth-of-type(6),
+  .page-unseen .un-sec:nth-of-type(7),
+  .page-unseen .un-sec:nth-of-type(8),
+  .page-unseen .un-sec:nth-of-type(9),
+  .page-unseen .un-sec:nth-of-type(10),
+  .page-unseen .un-sec:nth-of-type(11),
+  .page-unseen .un-sec:nth-of-type(12),
+  .page-unseen .un-sec:nth-of-type(13){ margin-top:clamp(40px,8vw,80px); }
+  .page-unseen .un-sec:nth-of-type(13){ padding-bottom:clamp(40px,7vw,70px); }
+
+  .page-unseen .un-h-problem,
+  .page-unseen .un-h-found,
+  .page-unseen .un-h-key,
+  .page-unseen .un-h-hmw{ margin-top:clamp(24px,5vw,44px); }
+  .page-unseen .un-hmw-label{ margin:14px 0 4px; }
+  .page-unseen .un-compet{ margin-top:clamp(20px,4vw,36px); }
+
+  .page-unseen .un-research-grid{ grid-template-columns:1fr; gap:18px; margin-top:16px; }
+  .page-unseen .un-compass{ width:min(100%,340px); margin:8px auto 0; }
+  .page-unseen .un-findings::before{ left:7px; top:9px; bottom:12px; width:1px; }
+  .page-unseen .un-findings li{
+    padding-left:30px; font-size:clamp(0.94rem,2.4vw,1.05rem);
+    margin-bottom:18px;
+  }
+  .page-unseen .un-findings li::before{ width:15px; height:15px; top:3px; }
+
+  .page-unseen .un-persona,
+  .page-unseen .un-journey{
+    width:100%; max-width:640px;
+    margin:clamp(18px,4vw,32px) auto 0;
+    padding-inline:4vw;
+  }
+  .page-unseen .un-persona:first-of-type,
+  .page-unseen .un-journey:first-of-type{ margin-top:clamp(20px,4vw,34px); }
+  .page-unseen .un-left,
+  .page-unseen .un-right{ margin-left:auto; margin-right:auto; }
+
+  .page-unseen .un-center-block p{ width:100%; text-align:center; }
+
+  .page-unseen .un-strip{ margin-top:clamp(16px,3.5vw,30px); }
+  /* the strip is sized by height here too, so the screens stay legible
+     instead of shrinking with the viewport; the seam scales with it */
+  .page-unseen .un-strip{ --un-strip-h: clamp(230px, 52vw, 360px); }
+
+  .page-unseen .un-ds{
+    width:100%; max-width:760px; padding-inline:4vw;
+    margin:clamp(26px,5vw,46px) auto 0;
+  }
+  .page-unseen .un-ds:first-of-type{ margin-top:clamp(18px,3.5vw,30px); }
+
+  .page-unseen .un-projnav-inner{ width:100%; padding-inline:6vw; }
+}

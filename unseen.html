@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unseen — Mumbai Heritage Discovery App | Suhani Abrol</title>
+<meta name="description" content="Unseen — a mobile app that helps people discover Mumbai's hidden cultural gems, local stories and communities beyond the usual tourist spots. UX/UI case study by Suhani Abrol.">
+<link rel="icon" href="assets/images/favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Lora is added for the Unseen wordmark only; the case study sets it in a
+     serif and every other page keeps the existing Caveat + Poppins pairing. -->
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Lora:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="unseen.css">
+</head>
+<body class="page-unseen">
+
+<!-- ================= HEADER ================= -->
+<!-- The homepage navigation, reused unchanged. .page-unseen is added to the
+     shared frosted-nav selectors in styles.css so this page picks up the same
+     pill automatically if the homepage nav ever changes. -->
+<header class="site-header">
+  <nav class="nav-pill" aria-label="Primary">
+    <div class="nav-avatar"><a href="index.html"><img src="assets/images/favicon.webp" alt="Suhani Abrol logo"></a></div>
+    <ul class="nav-links">
+      <li><a href="about.html" class="nav-link">About me<span class="dot"></span></a></li>
+      <li><a href="index.html#work" class="nav-link active" aria-current="page">Projects<span class="dot"></span></a></li>
+      <li><a href="index.html#about-me" class="nav-link">Other works<span class="dot"></span></a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact<span class="dot"></span></a></li>
+    </ul>
+  </nav>
+  <div class="social-cluster">
+    <a href="https://instagram.com/its.suhue" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/suhani-abrol" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.4 8.75h4.2V23H.4V8.75zM8.4 8.75h4.02v1.95h.06c.56-1.06 1.94-2.18 4-2.18 4.28 0 5.07 2.82 5.07 6.48V23h-4.2v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23H8.4V8.75z"/></svg>
+    </a>
+    <a href="https://behance.net/suhaniabrol" target="_blank" rel="noopener" aria-label="Behance">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 10.5c1.4-.6 2.1-1.7 2.1-3.2 0-2.6-2-3.8-4.4-3.8H0v15h5.9c2.6 0 5.1-1.3 5.1-4.2 0-1.8-.9-3.2-3.2-3.8zM2.9 5.6h2.3c1 0 1.9.3 1.9 1.5 0 1.1-.7 1.6-1.8 1.6H2.9V5.6zm2.6 10H2.9V10.9h2.7c1.3 0 2.2.6 2.2 2 0 1.5-1.1 2.7-2.3 2.7zM23.7 9.1h-6.9v1.4h6.9V9.1zM18.9 12c-3 0-5 2.1-5 5.1 0 3.1 1.9 5 5.1 5 2.4 0 4.1-1.1 4.8-3.3h-2.5c-.2.7-1.1 1.4-2.2 1.4-1.6 0-2.5-1-2.6-2.6h7.5c.1-3.2-1.4-5.6-5.1-5.6zm-2.4 4c.1-1.2 1-2 2.3-2 1.3 0 2 .8 2.1 2h-4.4z"/></svg>
+    </a>
+  </div>
+  <button class="nav-toggle" id="unNavToggle" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+</header>
+
+<div class="mobile-menu" id="unMobileMenu">
+  <div class="mobile-menu-panel">
+    <span class="mobile-close" id="unMobileClose">&times;</span>
+    <a href="about.html">About me →</a>
+    <a href="index.html#work">Projects →</a>
+    <a href="index.html#about-me">Other works →</a>
+    <a href="index.html#contact">Contact →</a>
+    <div class="msocial">
+      <a href="https://instagram.com/its.suhue" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+      <a href="https://linkedin.com/in/suhani-abrol" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.4 8.75h4.2V23H.4V8.75zM8.4 8.75h4.02v1.95h.06c.56-1.06 1.94-2.18 4-2.18 4.28 0 5.07 2.82 5.07 6.48V23h-4.2v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23H8.4V8.75z"/></svg></a>
+      <a href="https://behance.net/suhaniabrol" target="_blank" rel="noopener" aria-label="Behance"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.8 10.5c1.4-.6 2.1-1.7 2.1-3.2 0-2.6-2-3.8-4.4-3.8H0v15h5.9c2.6 0 5.1-1.3 5.1-4.2 0-1.8-.9-3.2-3.2-3.8zM2.9 5.6h2.3c1 0 1.9.3 1.9 1.5 0 1.1-.7 1.6-1.8 1.6H2.9V5.6zm2.6 10H2.9V10.9h2.7c1.3 0 2.2.6 2.2 2 0 1.5-1.1 2.7-2.3 2.7zM23.7 9.1h-6.9v1.4h6.9V9.1zM18.9 12c-3 0-5 2.1-5 5.1 0 3.1 1.9 5 5.1 5 2.4 0 4.1-1.1 4.8-3.3h-2.5c-.2.7-1.1 1.4-2.2 1.4-1.6 0-2.5-1-2.6-2.6h7.5c.1-3.2-1.4-5.6-5.1-5.6zm-2.4 4c.1-1.2 1-2 2.3-2 1.3 0 2 .8 2.1 2h-4.4z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<main class="un-main">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="un-hero">
+    <img class="un-hero-card" src="assets/images/unseen/hero-card.png"
+         alt="Unseen — an app that helps people discover Mumbai's hidden cultural gems, local stories and communities beyond the usual tourist spots.">
+
+    <h1 class="un-wordmark">UNSEEN</h1>
+    <p class="un-tagline">Discover Mumbai through the places, people and stories that usually go unnoticed.</p>
+
+    <div class="un-text">
+      <p class="un-just">Fluence is a water-based skincare brand concept created around the idea that effective skincare should feel fresh, accessible, and uncomplicated.</p>
+      <p class="un-just">The project explored how a skincare identity could communicate hydration and purity while still feeling contemporary, approachable, and affordable.</p>
+    </div>
+
+    <div class="un-meta">
+      <div class="un-meta-row">
+        <div><h2>Type</h2><p>College Assignment</p></div>
+        <div><h2>Group</h2><p>Suhani Abrol ( Me ;)<br>Shipra Kant<br>Nemat Bhandari<br>Aaryaman Rajesh</p></div>
+        <div><h2>Category</h2><p>UX / UI Design • User Research • Mobile App</p></div>
+      </div>
+      <div class="un-meta-role">
+        <div><h2>Role</h2><p>UX / UI Design • User Research • User Testing</p></div>
+        <p class="un-meta-note">Group Project + Independent Refinement</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. MUMBAI ============ -->
+  <section class="un-sec">
+    <img class="un-band" src="assets/images/unseen/mumbai.png" alt="Mumbai — the Gateway of India and the harbour at dusk.">
+  </section>
+
+  <!-- ============ 3. OVERVIEW / THE PROBLEM ============ -->
+  <section class="un-sec un-text">
+    <h2 class="un-h-black">Overview</h2>
+    <p class="un-just">Mumbai is filled with cultural spaces, local businesses, old cafés, theatres and communities that carry stories of the city, but many of them remain difficult to discover.</p>
+    <p class="un-just"><span class="un-em">UNSEEN</span> is a mobile app designed to help people discover these lesser-known places through curated recommendations, local stories, maps and community-driven exploration.</p>
+
+    <h2 class="un-h-brown un-h-problem">THE PROBLEM</h2>
+    <p class="un-just">Most discovery platforms make popular places easy to find, but leave lesser-known cultural spaces scattered across social media, blogs, maps and word-of-mouth recommendations.</p>
+    <p class="un-just">This makes discovering authentic local experiences more difficult — while increasing visibility can also risk changing the character of the communities and places being discovered.</p>
+
+    <p class="un-hmw-label">How might we…</p>
+    <p class="un-just">make Mumbai's hidden cultural experiences easier to discover while keeping their stories, people and authenticity at the centre?</p>
+  </section>
+
+  <!-- ============ 4. RESEARCH ============ -->
+  <section class="un-sec">
+    <img class="un-research" src="assets/images/unseen/research-band.png"
+         alt="Research — secondary research showed that information about lesser-known places is fragmented across different platforms, while mainstream discovery platforms prioritise popular and highly reviewed destinations.">
+  </section>
+
+  <!-- ============ 5. COMPETITIVE ANALYSIS ============ -->
+  <section class="un-sec">
+    <h2 class="un-h-brown un-text">COMPETITIVE ANALYSIS</h2>
+    <img class="un-compet" src="assets/images/unseen/competitive-analysis.png"
+         alt="Competitive analysis of Atlas Obscura, Spotted by Locals, Like A Local, Google Maps, Swarm and TripAdvisor across type, features, strengths, weaknesses, ratings and downloads.">
+
+    <div class="un-text">
+      <h3 class="un-h-black un-h-found">What we found ?</h3>
+      <p>Existing platforms are effective at helping people find places, but they rarely combine location, cultural context, local stories and community perspectives in one experience.</p>
+      <p class="un-found-note">This became the foundation for UNSEEN.</p>
+    </div>
+  </section>
+
+  <!-- ============ 6. PRIMARY RESEARCH ============ -->
+  <section class="un-sec un-text">
+    <h2 class="un-h-brown">PRIMARY RESEARCH</h2>
+    <div class="un-research-grid">
+      <img class="un-compass" src="assets/images/unseen/survey-compass.png"
+           alt="Survey results: 24.8% use Google, TripAdvisor or top-10 lists; 22.3% visit famous places; 21.3% visit famous places and wander; 17.8% follow a blog, vlog or influencer itinerary; 14.2% wander on their own.">
+      <div class="un-research-copy">
+        <p>We conducted an online survey targeting both locals and tourists who have explored Mumbai. A total of 35+ respondents participated, providing insights into how people currently discover cultural spots and what challenges they face.</p>
+        <h3 class="un-h-black un-h-key">Key Findings</h3>
+        <ul class="un-findings">
+          <li>People often discover unfamiliar places through recommendations and word of mouth.</li>
+          <li>There is interest in exploring lesser-known places, but people often don't know where to find them.</li>
+          <li>People value authentic experiences over places that are simply popular or highly rated.</li>
+          <li>Local places can be shared more widely, but respect and authenticity matter.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. PERSONAS ============ -->
+  <section class="un-sec">
+    <h2 class="un-h-brown un-h-center">PERSONAS</h2>
+    <img class="un-persona un-left"  src="assets/images/unseen/persona-trisha.png" alt="Persona — Trisha Mehta, 26, HR manager from Hyderabad who wants to travel deeper, not just wider.">
+    <img class="un-persona un-right" src="assets/images/unseen/persona-aarav.png"  alt="Persona — Aarav Sharma, 34, editor at an advertising firm in Mumbai who wants to explore his own city like a tourist does.">
+    <img class="un-persona un-left"  src="assets/images/unseen/persona-rekha.png"  alt="Persona — Rekha Jain, 42, owner of a small handloom and handicraft boutique in Mumbai.">
+  </section>
+
+  <!-- ============ 8. USER JOURNEY ============ -->
+  <section class="un-sec">
+    <h2 class="un-h-brown un-h-center">USER JOURNEY</h2>
+    <img class="un-journey un-left"  src="assets/images/unseen/journey-social-media.png"    alt="User journey — discovery through social media, across discovery, research, planning and visit.">
+    <img class="un-journey un-right" src="assets/images/unseen/journey-word-of-mouth.png"   alt="User journey — discovery through word of mouth, across discovery, research, planning and visit.">
+    <img class="un-journey un-left"  src="assets/images/unseen/journey-tour-guides.png"     alt="User journey — discovery through tour guides, across discovery, research, planning and visit.">
+    <img class="un-journey un-right" src="assets/images/unseen/journey-articles-blogs.png"  alt="User journey — discovery through articles and blogs, across discovery, research, planning and visit.">
+  </section>
+
+  <!-- ============ 9. PROBLEM DEFINITION / HOW MIGHT WE ============ -->
+  <section class="un-sec un-text un-center-block">
+    <h2 class="un-h-brown un-h-center">PROBLEM DEFINITION</h2>
+    <p>People are interested in discovering Mumbai's lesser-known cultural spaces, but the current discovery process is fragmented and often disconnected from the stories and communities behind those places.</p>
+    <h2 class="un-h-brown un-h-center un-h-hmw">HOW MIGHT WE…</h2>
+    <p>create a more meaningful way to discover Mumbai's hidden cultural experiences while keeping local voices and authenticity at the centre?</p>
+  </section>
+
+  <!-- ============ 10. WIREFRAMING ============ -->
+  <!-- The supplied long strip is used whole and animated inside a masked
+       viewport. Two copies sit in the track so translateX(-50%) — exactly one
+       copy — lands the loop back on an identical frame with no visible jump. -->
+  <section class="un-sec">
+    <h3 class="un-h-black un-text">Wireframing</h3>
+    <div class="un-strip un-strip-wire">
+      <div class="un-strip-track">
+        <img src="assets/images/unseen/wireframes-strip.png" alt="Low-fidelity wireframes for the Unseen app, moving horizontally.">
+        <img src="assets/images/unseen/wireframes-strip.png" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11. HI-FI SCREENS ============ -->
+  <section class="un-sec">
+    <h3 class="un-h-black un-text">Hifi-Screens</h3>
+    <div class="un-strip un-strip-hifi">
+      <div class="un-strip-track">
+        <img src="assets/images/unseen/hifi-strip.jpg" alt="High-fidelity screens for the Unseen app, moving horizontally.">
+        <img src="assets/images/unseen/hifi-strip.jpg" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12. DESIGN SYSTEM ============ -->
+  <section class="un-sec">
+    <h2 class="un-h-brown un-text un-h-ds">DESIGN SYSTEM</h2>
+    <img class="un-ds" src="assets/images/unseen/ds-colour-icons-badges.png" alt="Colour palette, iconography and badges.">
+    <img class="un-ds" src="assets/images/unseen/ds-typefaces.png"           alt="Typefaces — Lora and Roboto.">
+    <img class="un-ds" src="assets/images/unseen/ds-components.png"          alt="Components — navigation bar, header and input fields.">
+    <img class="un-ds" src="assets/images/unseen/ds-buttons-controls.png"    alt="Buttons and controls — CTA buttons, categories and filters, audio and recording, filter.">
+    <img class="un-ds" src="assets/images/unseen/ds-cards.png"               alt="Cards — overlays, posts, itinerary cards, bookmark page and comments.">
+    <img class="un-ds" src="assets/images/unseen/ds-messaging-cards.png"     alt="Messaging cards — attachments, photo and video pickers, and poll creation.">
+  </section>
+
+  <!-- ============ 13. INTRODUCING UNSEEN ============ -->
+  <section class="un-sec">
+    <h2 class="un-h-brown un-text un-h-intro">INTRODUCING UNSEEN</h2>
+    <img class="un-band" src="assets/images/unseen/introducing-card.jpg" alt="Heritage Explorer — UX/UI design. Three Unseen screens: home, itinerary and custom itinerary.">
+  </section>
+
+</main>
+
+<!-- ============ PROJECT NAVIGATION — closes the case study ============ -->
+<!-- The same component as the Fluence and Hoopr pages, in the same place.
+     Dor is next in the Selected Work order after Unseen but has no page yet,
+     so it is an aria-disabled button rather than a dead link, exactly as
+     Fluence handled Unseen before this page existed. -->
+<nav class="un-projnav reveal" aria-label="Project navigation">
+  <div class="un-projnav-inner">
+    <a class="un-projbtn" href="index.html#work">Back</a>
+    <button type="button" class="un-projbtn un-projbtn-pending" aria-disabled="true">
+      Next Project<span class="un-sr-only"> — Dor, coming soon</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ================= FOOTER / CONTACT ================= -->
+<!-- The homepage footer markup, reused unchanged. The only difference is the
+     back-to-top target: this page has no #about section, so it uses the #top
+     document fragment, exactly as the Fluence, About and Hoopr pages do. -->
+<footer class="site-footer" id="contact">
+  <div class="leaf tl">
+    <img src="assets/images/leaf-tl.webp" alt="">
+  </div>
+  <div class="leaf br">
+    <img src="assets/images/leaf-br.webp" alt="">
+  </div>
+
+  <div class="avail-wrap reveal">
+    <div class="avail-badge"><span class="pulse-dot"></span>Available for work</div>
+    <div class="footer-avatar"><img src="assets/images/footer-avatar.png" alt="Suhani Abrol"></div>
+  </div>
+
+  <h2 class="reveal">LET'S CONNECT !!</h2>
+
+  <ul class="contact-list reveal">
+    <li>Email: <button class="copy-email" data-copy="suhaniabrol05@gmail.com">suhaniabrol05@gmail.com</button></li>
+    <li>LinkedIn: <a href="https://linkedin.com/in/suhani-abrol" target="_blank" rel="noopener">Suhani Abrol</a></li>
+    <li>Instagram: <a href="https://instagram.com/its.suhue" target="_blank" rel="noopener">its.suhue</a></li>
+    <li>Behance: <a href="https://behance.net/suhaniabrol" target="_blank" rel="noopener">Suhani Abrol</a></li>
+    <li>Contact: <a href="tel:+918899772889">+91 8899772889</a></li>
+  </ul>
+
+  <div class="footer-bottom">
+    <span>Designed &amp; built with ✦ by Suhani Abrol</span>
+    <a href="#top" class="to-top">
+      Back to top
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Copied to clipboard ✦</div>
+
+<script src="unseen.js"></script>
+</body>
+</html>

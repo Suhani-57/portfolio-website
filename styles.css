@@ -113,7 +113,8 @@
   .page-home .nav-pill,
   .page-fluence .nav-pill,
   .page-about .nav-pill,
-  .page-hoopr .nav-pill{
+  .page-hoopr .nav-pill,
+  .page-unseen .nav-pill{
     background:rgba(255,255,255,0.55);
     -webkit-backdrop-filter:blur(16px) saturate(140%);
     backdrop-filter:blur(16px) saturate(140%);
@@ -123,19 +124,23 @@
   .page-home .nav-pill:hover,
   .page-fluence .nav-pill:hover,
   .page-about .nav-pill:hover,
-  .page-hoopr .nav-pill:hover{ box-shadow:0 14px 34px -10px rgba(60,40,50,0.45); }
+  .page-hoopr .nav-pill:hover,
+  .page-unseen .nav-pill:hover{ box-shadow:0 14px 34px -10px rgba(60,40,50,0.45); }
   .page-home .nav-links a,
   .page-fluence .nav-links a,
   .page-about .nav-links a,
-  .page-hoopr .nav-links a{ color:var(--ink); }
+  .page-hoopr .nav-links a,
+  .page-unseen .nav-links a{ color:var(--ink); }
   .page-home .nav-links a:hover,
   .page-fluence .nav-links a:hover,
   .page-about .nav-links a:hover,
-  .page-hoopr .nav-links a:hover{ background:rgba(31,21,20,0.07); color:var(--ink); }
+  .page-hoopr .nav-links a:hover,
+  .page-unseen .nav-links a:hover{ background:rgba(31,21,20,0.07); color:var(--ink); }
   .page-home .nav-links a.active,
   .page-fluence .nav-links a.active,
   .page-about .nav-links a.active,
-  .page-hoopr .nav-links a.active{ color:var(--ink); background:rgba(31,21,20,0.10); }
+  .page-hoopr .nav-links a.active,
+  .page-unseen .nav-links a.active{ color:var(--ink); background:rgba(31,21,20,0.10); }
   .nav-avatar{
     width:42px;height:42px;border-radius:50%;
     background:#fff; border:2px solid #fff;
