@@ -213,12 +213,12 @@
 /* 13798 × 960 — an 11px left margin already matches the 13px gap the strip
    keeps between its own screens, so the two copies meet at the right rhythm. */
 .page-unseen .un-strip-wire{ --un-strip-dur:180s; }
-/* 12931 × 828 — this strip runs flush to both edges, so without a seam the
-   copies would touch. 0.0556 of the height reproduces the 46px gap the strip
+/* 7497 × 480 — this strip runs flush to both edges, so without a seam the
+   copies would touch. 0.05625 of the height reproduces the 27px gap the strip
    uses between its own screens. */
 .page-unseen .un-strip-hifi{
   --un-strip-dur:196s;
-  --un-seam: calc(var(--un-strip-h) * 0.0556);
+  --un-seam: calc(var(--un-strip-h) * 0.05625);
 }
 .page-unseen .un-strip:hover .un-strip-track{ animation-play-state:paused; }
 

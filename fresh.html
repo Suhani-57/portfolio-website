@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fresh — Smart Grocery Delivery App | Suhani Abrol</title>
+<meta name="description" content="Fresh Delivery — interaction design for a smart grocery delivery app. Fast delivery, expiry tracking and effortless everyday shopping. UX/UI case study by Suhani Abrol.">
+<link rel="icon" href="assets/images/favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="fresh.css">
+</head>
+<body class="page-fresh">
+
+<!-- ================= HEADER ================= -->
+<!-- The homepage navigation, reused unchanged. .page-fresh is added to the
+     shared frosted-nav selectors in styles.css so this page follows the
+     homepage nav automatically if it ever changes. -->
+<header class="site-header">
+  <nav class="nav-pill" aria-label="Primary">
+    <div class="nav-avatar"><a href="index.html"><img src="assets/images/favicon.webp" alt="Suhani Abrol logo"></a></div>
+    <ul class="nav-links">
+      <li><a href="about.html" class="nav-link">About me<span class="dot"></span></a></li>
+      <li><a href="index.html#work" class="nav-link active" aria-current="page">Projects<span class="dot"></span></a></li>
+      <li><a href="other-works.html" class="nav-link">Other works<span class="dot"></span></a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact<span class="dot"></span></a></li>
+    </ul>
+  </nav>
+  <div class="social-cluster">
+    <a href="https://instagram.com/its.suhue" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/suhani-abrol-204681282/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.4 8.75h4.2V23H.4V8.75zM8.4 8.75h4.02v1.95h.06c.56-1.06 1.94-2.18 4-2.18 4.28 0 5.07 2.82 5.07 6.48V23h-4.2v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23H8.4V8.75z"/></svg>
+    </a>
+    <a href="https://behance.net/suhaniabrol" target="_blank" rel="noopener" aria-label="Behance">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 10.5c1.4-.6 2.1-1.7 2.1-3.2 0-2.6-2-3.8-4.4-3.8H0v15h5.9c2.6 0 5.1-1.3 5.1-4.2 0-1.8-.9-3.2-3.2-3.8zM2.9 5.6h2.3c1 0 1.9.3 1.9 1.5 0 1.1-.7 1.6-1.8 1.6H2.9V5.6zm2.6 10H2.9V10.9h2.7c1.3 0 2.2.6 2.2 2 0 1.5-1.1 2.7-2.3 2.7zM23.7 9.1h-6.9v1.4h6.9V9.1zM18.9 12c-3 0-5 2.1-5 5.1 0 3.1 1.9 5 5.1 5 2.4 0 4.1-1.1 4.8-3.3h-2.5c-.2.7-1.1 1.4-2.2 1.4-1.6 0-2.5-1-2.6-2.6h7.5c.1-3.2-1.4-5.6-5.1-5.6zm-2.4 4c.1-1.2 1-2 2.3-2 1.3 0 2 .8 2.1 2h-4.4z"/></svg>
+    </a>
+  </div>
+  <button class="nav-toggle" id="frNavToggle" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+</header>
+
+<div class="mobile-menu" id="frMobileMenu">
+  <div class="mobile-menu-panel">
+    <span class="mobile-close" id="frMobileClose">&times;</span>
+    <a href="about.html">About me →</a>
+    <a href="index.html#work">Projects →</a>
+    <a href="other-works.html">Other works →</a>
+    <a href="index.html#contact">Contact →</a>
+    <div class="msocial">
+      <a href="https://instagram.com/its.suhue" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+      <a href="https://www.linkedin.com/in/suhani-abrol-204681282/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.4 8.75h4.2V23H.4V8.75zM8.4 8.75h4.02v1.95h.06c.56-1.06 1.94-2.18 4-2.18 4.28 0 5.07 2.82 5.07 6.48V23h-4.2v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23H8.4V8.75z"/></svg></a>
+      <a href="https://behance.net/suhaniabrol" target="_blank" rel="noopener" aria-label="Behance"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.8 10.5c1.4-.6 2.1-1.7 2.1-3.2 0-2.6-2-3.8-4.4-3.8H0v15h5.9c2.6 0 5.1-1.3 5.1-4.2 0-1.8-.9-3.2-3.2-3.8zM2.9 5.6h2.3c1 0 1.9.3 1.9 1.5 0 1.1-.7 1.6-1.8 1.6H2.9V5.6zm2.6 10H2.9V10.9h2.7c1.3 0 2.2.6 2.2 2 0 1.5-1.1 2.7-2.3 2.7zM23.7 9.1h-6.9v1.4h6.9V9.1zM18.9 12c-3 0-5 2.1-5 5.1 0 3.1 1.9 5 5.1 5 2.4 0 4.1-1.1 4.8-3.3h-2.5c-.2.7-1.1 1.4-2.2 1.4-1.6 0-2.5-1-2.6-2.6h7.5c.1-3.2-1.4-5.6-5.1-5.6zm-2.4 4c.1-1.2 1-2 2.3-2 1.3 0 2 .8 2.1 2h-4.4z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<main class="fr-main">
+
+  <!-- ============ 1. HERO BAND ============ -->
+  <img class="fr-hero" src="assets/images/fresh/slide-01.jpg" alt="Fresh Delivery — interaction design. Project by TEE: Smeet, Harleen, Mahek and Suhani.">
+
+  <!-- ============ 2. TITLE + INTRO + METADATA ============ -->
+  <section class="fr-intro">
+    <h1 class="fr-wordmark">FRESH</h1>
+    <p class="fr-tagline">Make everyday grocery shopping simpler, smarter, and more effortless.</p>
+
+    <div class="fr-text">
+      <p class="fr-just">From remembering what to buy and reordering daily essentials to keeping track of expiry dates and waiting for deliveries, small tasks can make grocery shopping more time-consuming than it needs to be. Fresh Delivery is an attempt to make these everyday routines simpler, bringing groceries and household essentials to your doorstep while helping you plan, track, and manage what you need.</p>
+      <p class="fr-just">It&rsquo;s not just about delivering groceries faster. It&rsquo;s about making shopping feel effortless, reliable, and more organised.</p>
+    </div>
+
+    <div class="fr-meta">
+      <div class="fr-meta-row">
+        <div><h2>Type</h2><p>College Assignment</p></div>
+        <div><h2>Group</h2><p>Suhani Abrol ( Me ;)<br>Harleen<br>Mahek Kanadia<br>Smeet Shah</p></div>
+        <div><h2>Category</h2><p>UX / UI Design &bull; User Research &bull; Mobile App</p></div>
+      </div>
+      <div class="fr-meta-role">
+        <div><h2>Role</h2><p>UI Design &bull; User Research &bull; User Testing</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. THE CASE STUDY ============
+       The supplied deck, in its own order. Every band is a full slide used
+       exactly as exported — nothing is cropped, recoloured or rebuilt. -->
+  <div class="fr-deck">
+    <img src="assets/images/fresh/slide-03.jpg" alt="In today's fast-paced world, convenience is no longer a luxury, it's an expectation. Yet groceries still mean long delivery windows, product unavailability, or last-minute store runs.">
+    <img src="assets/images/fresh/slide-04.jpg" alt="Need for intervention — delayed deliveries that disrupt schedules, food expiring unnoticed and wasted, and repetitive ordering for daily essentials.">
+    <img src="assets/images/fresh/slide-05.jpg" alt="Introducing Fresh — a fast doorstep delivery app for the urban lifestyle, delivering groceries and household essentials in the time it takes to boil water for tea.">
+    <img src="assets/images/fresh/slide-06.jpg" alt="Primary function — to order groceries online and get them delivered at home.">
+    <img src="assets/images/fresh/slide-07.jpg" alt="Scoping — desirability.">
+    <img src="assets/images/fresh/slide-08.jpg" alt="Scoping — capability.">
+    <img src="assets/images/fresh/slide-09.jpg" alt="Scoping — visibility.">
+    <img src="assets/images/fresh/slide-10.jpg" alt="Empty state." loading="lazy">
+    <img src="assets/images/fresh/slide-11.jpg" alt="Empty states for the expiry tracker and the shopping cart." loading="lazy">
+    <img src="assets/images/fresh/slide-12.jpg" alt="Empty states for order history and search." loading="lazy">
+    <img src="assets/images/fresh/slide-13.jpg" alt="Business, technology and user-needs aspects of the app." loading="lazy">
+    <img src="assets/images/fresh/slide-14.jpg" alt="Levels of processing — reflective, behavioural and visceral." loading="lazy">
+    <img src="assets/images/fresh/slide-15.jpg" alt="Choice architecture — nudge, budge and boost." loading="lazy">
+
+    <img src="assets/images/fresh/slide-16.jpg" alt="Homepage." loading="lazy">
+    <img src="assets/images/fresh/slide-17.jpg" alt="Homepage heuristics." loading="lazy">
+    <img src="assets/images/fresh/slide-18.jpg" alt="Expiry tracker." loading="lazy">
+    <img src="assets/images/fresh/slide-19.jpg" alt="Expiry tracker heuristics." loading="lazy">
+    <img src="assets/images/fresh/slide-20.jpg" alt="Grocery list." loading="lazy">
+    <img src="assets/images/fresh/slide-21.jpg" alt="Grocery list heuristics — photo capture." loading="lazy">
+    <img src="assets/images/fresh/slide-22.jpg" alt="Grocery list heuristics — voice input." loading="lazy">
+    <img src="assets/images/fresh/slide-23.jpg" alt="Categories." loading="lazy">
+    <img src="assets/images/fresh/slide-24.jpg" alt="Categories heuristics." loading="lazy">
+    <img src="assets/images/fresh/slide-25.jpg" alt="Product page." loading="lazy">
+    <img src="assets/images/fresh/slide-26.jpg" alt="Product page heuristics." loading="lazy">
+    <img src="assets/images/fresh/slide-27.jpg" alt="Help." loading="lazy">
+    <img src="assets/images/fresh/slide-28.jpg" alt="Help heuristics." loading="lazy">
+    <img src="assets/images/fresh/slide-29.jpg" alt="My account." loading="lazy">
+    <img src="assets/images/fresh/slide-30.jpg" alt="My account heuristics." loading="lazy">
+    <img src="assets/images/fresh/slide-31.jpg" alt="Subscription." loading="lazy">
+    <img src="assets/images/fresh/slide-32.jpg" alt="Subscription heuristics." loading="lazy">
+    <img src="assets/images/fresh/slide-33.jpg" alt="Cart." loading="lazy">
+    <img src="assets/images/fresh/slide-34.jpg" alt="Cart heuristics." loading="lazy">
+    <img src="assets/images/fresh/slide-35.jpg" alt="Track order." loading="lazy">
+    <img src="assets/images/fresh/slide-36.jpg" alt="Track order heuristics." loading="lazy">
+
+    <img src="assets/images/fresh/slide-02.jpg" alt="The Fresh Delivery app — home, categories, order tracking and expiry tracker." loading="lazy">
+  </div>
+
+</main>
+
+<!-- ============ PROJECT NAVIGATION — closes the case study ============ -->
+<!-- The same component as the Fluence, Hoopr and Unseen pages, in the same
+     place. Fresh is last in the Selected Work order, so Next Project wraps
+     round to the first project rather than sitting dead. -->
+<nav class="fr-projnav reveal" aria-label="Project navigation">
+  <div class="fr-projnav-inner">
+    <a class="fr-projbtn" href="index.html#work">Back</a>
+    <a class="fr-projbtn" href="hoopr.html">Next Project</a>
+  </div>
+</nav>
+
+<!-- ================= FOOTER / CONTACT ================= -->
+<!-- The homepage footer markup, reused unchanged. The only difference is the
+     back-to-top target: this page has no #about section, so it uses the #top
+     document fragment, exactly as the other inner pages do. -->
+<footer class="site-footer" id="contact">
+  <div class="leaf tl">
+    <img src="assets/images/leaf-tl.webp" alt="">
+  </div>
+  <div class="leaf br">
+    <img src="assets/images/leaf-br.webp" alt="">
+  </div>
+
+  <div class="avail-wrap reveal">
+    <div class="avail-badge"><span class="pulse-dot"></span>Available for work</div>
+    <div class="footer-avatar"><img src="assets/images/footer-avatar.png" alt="Suhani Abrol"></div>
+  </div>
+
+  <h2 class="reveal">LET'S CONNECT !!</h2>
+
+  <ul class="contact-list reveal">
+    <li>Email: <button class="copy-email" data-copy="suhaniabrol05@gmail.com">suhaniabrol05@gmail.com</button></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/suhani-abrol-204681282/" target="_blank" rel="noopener">Suhani Abrol</a></li>
+    <li>Instagram: <a href="https://instagram.com/its.suhue" target="_blank" rel="noopener">its.suhue</a></li>
+    <li>Behance: <a href="https://behance.net/suhaniabrol" target="_blank" rel="noopener">Suhani Abrol</a></li>
+  </ul>
+
+  <div class="footer-bottom">
+    <a href="#top" class="to-top">
+      Back to top
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Copied to clipboard ✦</div>
+
+<script src="fresh.js"></script>
+</body>
+</html>

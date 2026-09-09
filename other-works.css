@@ -1,0 +1,122 @@
+/* ============================================================
+   OTHER WORKS — personal art
+   Page-local styles only, scoped to .page-otherworks so the
+   shared stylesheet, the nav, the footer and every other page
+   are untouched.
+
+   The supplied export is a 1440 frame whose cream panel spans
+   x 20..1419 — a 1400 content width. Every tile width is a
+   proportion of that panel and every row height a cqw of it,
+   so the whole gallery scales as one piece.
+   1 design px at 1400 = 0.07143cqw.
+   ============================================================ */
+
+.page-otherworks{ background:var(--paper); }
+
+.page-otherworks .ow-main{
+  padding: 6.7vh 20px 0;          /* the panel keeps a 20px gutter, as the export does */
+  max-width:1440px;
+  margin-inline:auto;
+}
+
+/* ---------- the cream panel ---------- */
+.page-otherworks .ow-panel{
+  position:relative;
+  background:#FFF3D5;
+  border-radius:2.86cqw;
+  overflow:hidden;                /* clips the deco to the panel, as in the export */
+  container-type: inline-size;
+  padding: 3.5cqw 0 0.9cqw;       /* the tiles run flush to the left and right edges */
+}
+
+/* the halftone diamonds sit in the top-right corner and are cut by the panel */
+.page-otherworks .ow-deco{
+  position:absolute; top:-9%; right:1.6%;
+  width:13.5%;
+  pointer-events:none; opacity:0.95; z-index:0;
+}
+.page-otherworks .ow-deco img{ width:100%; height:auto; display:block; }
+
+.page-otherworks .ow-title{
+  position:relative; z-index:1;
+  font-family:'Peace Sans', 'Caveat', cursive; font-weight:400;
+  font-size:4.79cqw;              /* 67px @1400 */
+  line-height:1.05;
+  color:#542315;
+  padding-left:3.14cqw;           /* 44px — the heading is inset, the tiles are not */
+  margin:0 0 4.3cqw;
+}
+
+/* ---------- the gallery ----------
+   Each row is its own grid so the tiles keep the exact widths and
+   heights the export gives them; `fr` units carry the measured
+   proportions, so the gaps stay put at any width. */
+.page-otherworks .ow-row{
+  display:grid;
+  align-items:stretch;
+}
+.page-otherworks .ow-row + .ow-row{ margin-top:0.93cqw; }
+
+.page-otherworks .ow-row-1{ grid-template-columns:618fr 437fr 309fr; gap:1.21%; height:29.93cqw; }
+.page-otherworks .ow-row-2{ grid-template-columns:618fr 430fr 325fr; gap:0.90%; height:30.79cqw; }
+.page-otherworks .ow-row-3{ grid-template-columns:901fr 455fr;       gap:2.93%; height:32.71cqw; }
+.page-otherworks .ow-row-4{ grid-template-columns:449fr 451fr 448fr; gap:1.89%; height:33.57cqw; }
+.page-otherworks .ow-row-4{ margin-top:2.07cqw; }
+
+.page-otherworks .ow-tile{
+  margin:0; overflow:hidden;
+  background:#fff;
+  min-width:0;                    /* so a wide image cannot push its grid column */
+}
+.page-otherworks .ow-tile img{
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  display:block;
+}
+
+/* ============================================================
+   TABLET / MOBILE
+   The composition stops scaling and starts flowing: the four
+   fixed rows become one masonry-ish column set. Order, colours
+   and the panel are unchanged.
+   ============================================================ */
+@media (max-width: 1100px){
+  .page-otherworks .ow-main{ padding:clamp(18px,4vw,34px) 4vw 0; }
+  .page-otherworks .ow-panel{
+    container-type:normal;
+    border-radius:clamp(18px,3vw,30px);
+    padding:clamp(22px,4vw,34px) clamp(14px,2.5vw,20px) clamp(16px,3vw,24px);
+  }
+  .page-otherworks .ow-deco{ width:26%; top:-5%; right:2%; }
+  .page-otherworks .ow-title{
+    font-size:clamp(1.8rem,6.4vw,2.9rem);
+    padding-left:0;
+    margin-bottom:clamp(18px,3.5vw,28px);
+  }
+
+  .page-otherworks .ow-row,
+  .page-otherworks .ow-row-1,
+  .page-otherworks .ow-row-2,
+  .page-otherworks .ow-row-3,
+  .page-otherworks .ow-row-4{
+    grid-template-columns:repeat(2, 1fr);
+    gap:clamp(8px,1.6vw,14px);
+    height:auto;
+    margin-top:clamp(8px,1.6vw,14px);
+  }
+  .page-otherworks .ow-row:first-child{ margin-top:0; }
+  /* with no fixed row height the tile keeps the artwork's own shape */
+  .page-otherworks .ow-tile img{ height:auto; aspect-ratio:1 / 1; }
+  .page-otherworks .ow-row-3 .ow-tile:first-child img{ aspect-ratio:2 / 1; }
+  .page-otherworks .ow-row-3 .ow-tile:first-child{ grid-column:1 / -1; }
+}
+
+@media (max-width: 560px){
+  .page-otherworks .ow-row,
+  .page-otherworks .ow-row-1,
+  .page-otherworks .ow-row-2,
+  .page-otherworks .ow-row-3,
+  .page-otherworks .ow-row-4{ grid-template-columns:1fr; }
+  .page-otherworks .ow-tile img{ aspect-ratio:auto; }
+  .page-otherworks .ow-row-3 .ow-tile:first-child img{ aspect-ratio:auto; }
+}

@@ -50,10 +50,11 @@
       chips:["UI/UX","Case Study"],
       pill:"#893E1E", mark:"assets/images/works/wordmark-unseen.png", markW:"47.2%",
       card:"assets/images/works/card-unseen.png", url:"unseen.html" },
-    { name:"Dor", tag:"Digital experience", icon:"D", c1:"#E98C7B", c2:"#B94836",
-      desc:"An interactive, story-driven microsite built around a single evocative idea.",
-      chips:["Interactive","Story-driven"],
-      pill:"#EBDDCD", mark:"assets/images/works/wordmark-dor.png", markW:"17.8%" }
+    { name:"Fresh", tag:"Interaction Design", icon:"F", c1:"#9CBFB8", c2:"#0B3B39",
+      desc:"Interaction Design for a Smart Grocery Delivery App — Fast Delivery, Expiry Tracking & Effortless Everyday Shopping.",
+      chips:["Grocery","Delivery"],
+      pill:"#D5E3E0", mark:"assets/images/works/wordmark-fresh.png", markW:"100%",
+      card:"assets/images/works/card-fresh.png", url:"fresh.html" }
   ];
 
   var list = document.getElementById('projectList');
@@ -192,7 +193,7 @@
     });
   });
 
-  var sections = ['about','work','about-me','contact'].map(function(id){ return document.getElementById(id); });
+  var sections = ['about','work','contact'].map(function(id){ return document.getElementById(id); });
   var navLinksEls = document.querySelectorAll('.nav-link');
   // While the site is still growing, two links can share a section — Other
   // works has none of its own yet and rides along with About me. Only the

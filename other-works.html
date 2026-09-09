@@ -3,24 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hoopr — Music Artworks | Suhani Abrol</title>
-<meta name="description" content="Music Artworks for Hoopr — digital cover art, art direction and visual concept development across romantic, folk, devotional, Bhojpuri and instrumental music.">
+<title>Other Works — Personal Art | Suhani Abrol</title>
+<meta name="description" content="Some personal art by Suhani Abrol — illustration, character work and digital painting made outside of client and college projects.">
 <link rel="icon" href="assets/images/favicon.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="hoopr.css">
+<link rel="stylesheet" href="other-works.css">
 </head>
-<body class="page-hoopr">
+<body class="page-otherworks">
 
 <!-- ================= HEADER ================= -->
+<!-- The homepage navigation, reused unchanged. .page-otherworks is added to the
+     shared frosted-nav selectors in styles.css so this page follows the
+     homepage nav automatically if it ever changes. -->
 <header class="site-header">
   <nav class="nav-pill" aria-label="Primary">
     <div class="nav-avatar"><a href="index.html"><img src="assets/images/favicon.webp" alt="Suhani Abrol logo"></a></div>
     <ul class="nav-links">
       <li><a href="about.html" class="nav-link">About me<span class="dot"></span></a></li>
-      <li><a href="index.html#work" class="nav-link active" aria-current="page">Projects<span class="dot"></span></a></li>
-      <li><a href="other-works.html" class="nav-link">Other works<span class="dot"></span></a></li>
+      <li><a href="index.html#work" class="nav-link">Projects<span class="dot"></span></a></li>
+      <li><a href="other-works.html" class="nav-link active" aria-current="page">Other works<span class="dot"></span></a></li>
       <li><a href="index.html#contact" class="nav-link">Contact<span class="dot"></span></a></li>
     </ul>
   </nav>
@@ -35,14 +38,14 @@
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 10.5c1.4-.6 2.1-1.7 2.1-3.2 0-2.6-2-3.8-4.4-3.8H0v15h5.9c2.6 0 5.1-1.3 5.1-4.2 0-1.8-.9-3.2-3.2-3.8zM2.9 5.6h2.3c1 0 1.9.3 1.9 1.5 0 1.1-.7 1.6-1.8 1.6H2.9V5.6zm2.6 10H2.9V10.9h2.7c1.3 0 2.2.6 2.2 2 0 1.5-1.1 2.7-2.3 2.7zM23.7 9.1h-6.9v1.4h6.9V9.1zM18.9 12c-3 0-5 2.1-5 5.1 0 3.1 1.9 5 5.1 5 2.4 0 4.1-1.1 4.8-3.3h-2.5c-.2.7-1.1 1.4-2.2 1.4-1.6 0-2.5-1-2.6-2.6h7.5c.1-3.2-1.4-5.6-5.1-5.6zm-2.4 4c.1-1.2 1-2 2.3-2 1.3 0 2 .8 2.1 2h-4.4z"/></svg>
     </a>
   </div>
-  <button class="nav-toggle" id="hpNavToggle" aria-label="Open menu">
+  <button class="nav-toggle" id="owNavToggle" aria-label="Open menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
   </button>
 </header>
 
-<div class="mobile-menu" id="hpMobileMenu">
+<div class="mobile-menu" id="owMobileMenu">
   <div class="mobile-menu-panel">
-    <span class="mobile-close" id="hpMobileClose">&times;</span>
+    <span class="mobile-close" id="owMobileClose">&times;</span>
     <a href="about.html">About me →</a>
     <a href="index.html#work">Projects →</a>
     <a href="other-works.html">Other works →</a>
@@ -55,91 +58,47 @@
   </div>
 </div>
 
-<main class="hp-main">
+<main class="ow-main">
 
-  <!-- ============ 1. HERO ============ -->
-  <section class="hp-hero">
-    <!-- The vinyl sits on its own absolutely positioned layer purely so the
-         rotation can never touch the flow. Nothing below it moves. -->
-    <div class="hp-vinyl" aria-hidden="true">
-      <img src="assets/images/hoopr/vinyl.png" alt="">
-    </div>
+  <!-- ============ SOME PERSONAL ART ============ -->
+  <section class="ow-panel reveal">
+    <div class="ow-deco" aria-hidden="true"><img src="assets/images/diamonds-deco.png" alt=""></div>
 
-    <div class="hp-hero-copy">
-      <h1 class="hp-title">Music<br>Artworks</h1>
+    <h1 class="ow-title">Some Personal Art</h1>
 
-      <div class="hp-meta">
-        <div class="hp-meta-col">
-          <h2>Type</h2>
-          <p>Professional Work</p>
-        </div>
-        <div class="hp-meta-col">
-          <h2>Group</h2>
-          <p>Internship</p>
-        </div>
-        <div class="hp-meta-col">
-          <h2>Category</h2>
-          <p>Music Artwork &bull; Digital Design &bull; Art Direction &bull; Visual Communication</p>
-        </div>
-      </div>
-      <div class="hp-meta-role">
-        <h2>Role</h2>
-        <p>Graphic Design &bull; Art Direction &bull; Visual Concept Development &bull; Typography &bull; Image Composition &bull; Digital Artwork &bull; Promotional Design</p>
+    <div class="ow-grid">
+      <!-- the four rows keep the proportions of the supplied layout -->
+      <div class="ow-row ow-row-1">
+        <figure class="ow-tile"><img src="assets/images/art/art-330am.jpg" alt="3:30 AM — a girl wrapped in a pink blanket, awake in the small hours." loading="lazy"></figure>
+        <figure class="ow-tile"><img src="assets/images/art/art-bhigi-bhigi.jpg" alt="Bhigi-bhigi raaton mein — a black and white portrait in a sari and jhumkas." loading="lazy"></figure>
+        <figure class="ow-tile"><img src="assets/images/art/art-gentleman.jpg" alt="A caricature of a gentleman in a grey three-piece suit." loading="lazy"></figure>
       </div>
 
-      <!-- the bar's chrome stays as the supplied artwork; the strip below it
-           is a live carousel holding every artwork, built in hoopr.js -->
-      <div class="hp-featured">
-        <img class="hp-featured-head" src="assets/images/hoopr/featured-head.png" alt="Featured works">
-        <div class="hp-featured-body" id="hpFeatured"></div>
+      <div class="ow-row ow-row-2">
+        <figure class="ow-tile"><img src="assets/images/art/art-portrait-grey.jpg" alt="A soft-lit portrait of a long-haired girl on a grey ground." loading="lazy"></figure>
+        <figure class="ow-tile"><img src="assets/images/art/art-two-girls.jpg" alt="Two friends laughing together against a yellow botanical backdrop." loading="lazy"></figure>
+        <figure class="ow-tile"><img src="assets/images/art/art-curly-boy.jpg" alt="A curly-haired boy in a white shirt, painted against a blue sky." loading="lazy"></figure>
+      </div>
+
+      <div class="ow-row ow-row-3">
+        <figure class="ow-tile"><img src="assets/images/art/art-sparklers.jpg" alt="Two figures holding sparklers against a night sky." loading="lazy"></figure>
+        <figure class="ow-tile"><img src="assets/images/art/art-closeup.jpg" alt="A close-up portrait, hands framing the face, in pink and black." loading="lazy"></figure>
+      </div>
+
+      <div class="ow-row ow-row-4">
+        <figure class="ow-tile"><img src="assets/images/art/art-red-dress.jpg" alt="A girl in a red dress with ribboned hair, surrounded by bubbles underwater." loading="lazy"></figure>
+        <figure class="ow-tile"><img src="assets/images/art/art-chibi.jpg" alt="A chibi character with wavy hair and hoop earrings on a pink ground." loading="lazy"></figure>
+        <figure class="ow-tile"><img src="assets/images/art/art-lineart.jpg" alt="A line-art portrait of a smiling man in glasses and a suit." loading="lazy"></figure>
       </div>
     </div>
-  </section>
-
-  <!-- ============ 2. NOW YOU'RE LISTENING TO ============ -->
-  <section class="hp-intro">
-    <div class="hp-intro-head">
-      <h2>Now You're<br>Listening To...</h2>
-      <img class="hp-disc" src="assets/images/hoopr/hoopr-disc.png" alt="Hoopr">
-    </div>
-
-    <p>An Exploration Of Music Through Image, Typography, Colour And Visual Storytelling.</p>
-    <p class="hp-pink">Music Doesn't Just Sound A Certain Way &mdash; It Feels A Certain Way.</p>
-    <p class="hp-just">During my internship at Hoopr, I explored how those feelings could be translated into visual worlds. Each song became a starting point for a different visual direction, allowing me to experiment with imagery, typography, colour, composition and art direction.</p>
-    <p>Rather than creating one fixed visual style, I approached every track as its own story.</p>
-
-    <h3>What I made ?</h3>
-    <p>I created a collection of digital music artworks spanning romantic tracks, Indian and folk-inspired music, dreamy compositions, energetic releases and travel-inspired sounds.</p>
-    <p class="hp-just">My role involved developing visual concepts, exploring imagery and references, composing layouts, experimenting with typography and creating the final digital artworks.</p>
-    <p class="hp-tight">The process was less about following one aesthetic and more about asking:</p>
-    <p class="hp-pink">What should this song look like?</p>
-    <p class="hp-just">That question became the guiding principle across different client projects I worked on over a period of three months.</p>
-  </section>
-
-  <!-- ============ 3. NOW PLAYING ============ -->
-  <section class="hp-playing">
-    <h2 class="hp-playing-head">Now<br>Playing.....</h2>
-    <!-- the five playlist cards are built from the artwork data in hoopr.js -->
-    <div class="hp-lists" id="hpLists"></div>
   </section>
 
 </main>
 
-<!-- ============ PROJECT NAVIGATION — closes the case study ============ -->
-<!-- Same component as the Fluence page, in the same place: between the end of
-     the case study and the footer. Fluence is next in the Selected Work order
-     after Hoopr and its page exists, so this one is a real link. -->
-<nav class="hp-projnav reveal" aria-label="Project navigation">
-  <div class="hp-projnav-inner">
-    <a class="hp-projbtn" href="index.html#work">Back</a>
-    <a class="hp-projbtn" href="fluence.html">Next Project</a>
-  </div>
-</nav>
-
 <!-- ================= FOOTER / CONTACT ================= -->
 <!-- The homepage footer markup, reused unchanged. The only difference is the
      back-to-top target: this page has no #about section, so it uses the #top
-     document fragment, exactly as the Fluence and About pages do. -->
+     document fragment, exactly as the other inner pages do. -->
 <footer class="site-footer" id="contact">
   <div class="leaf tl">
     <img src="assets/images/leaf-tl.webp" alt="">
@@ -172,6 +131,6 @@
 
 <div class="toast" id="toast">Copied to clipboard ✦</div>
 
-<script src="hoopr.js"></script>
+<script src="other-works.js"></script>
 </body>
 </html>
