@@ -11,6 +11,19 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-home">
+
+<!-- ================= INTRO SPLASH =================
+     A two-beat greeting that plays on landing: "Oh, hello!" swaps to
+     "You found me!", then the whole curtain lifts to reveal the hero.
+     Every character carries its own animation-delay inline, so the
+     sequence is pure CSS and cannot stall if script.js fails to load.
+     aria-hidden because the greeting is decoration — a screen reader
+     goes straight to the h1. -->
+<div class="intro-splash" aria-hidden="true">
+  <span class="intro-bubble intro-bubble-1"><span class="intro-char" style="animation-delay:0.150s">O</span><span class="intro-char" style="animation-delay:0.195s">h</span><span class="intro-char" style="animation-delay:0.240s">,</span><span class="intro-char" style="animation-delay:0.285s">&nbsp;</span><span class="intro-char" style="animation-delay:0.330s">h</span><span class="intro-char" style="animation-delay:0.375s">e</span><span class="intro-char" style="animation-delay:0.420s">l</span><span class="intro-char" style="animation-delay:0.465s">l</span><span class="intro-char" style="animation-delay:0.510s">o</span><span class="intro-char" style="animation-delay:0.555s">!</span></span>
+  <span class="intro-bubble intro-bubble-2"><span class="intro-char" style="animation-delay:0.950s">Y</span><span class="intro-char" style="animation-delay:0.995s">o</span><span class="intro-char" style="animation-delay:1.040s">u</span><span class="intro-char" style="animation-delay:1.085s">&nbsp;</span><span class="intro-char" style="animation-delay:1.130s">f</span><span class="intro-char" style="animation-delay:1.175s">o</span><span class="intro-char" style="animation-delay:1.220s">u</span><span class="intro-char" style="animation-delay:1.265s">n</span><span class="intro-char" style="animation-delay:1.310s">d</span><span class="intro-char" style="animation-delay:1.355s">&nbsp;</span><span class="intro-char" style="animation-delay:1.400s">m</span><span class="intro-char" style="animation-delay:1.445s">e</span><span class="intro-char" style="animation-delay:1.490s">!</span></span>
+</div>
+
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- ================= HEADER ================= -->
