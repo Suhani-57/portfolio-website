@@ -150,6 +150,17 @@
     display:grid; grid-template-columns: 1fr auto 1fr; align-items:center;
     pointer-events:none;
   }
+  /* On the homepage the blossom photo runs to the very top of the
+     viewport and the nav floats over it. A sticky header still takes
+     its ~74px of flow space, and that space reads as a band of page
+     background above the photo. Fixed takes it out of the flow so the
+     hero starts at y 0; behaviour is otherwise identical, because a
+     top:0 sticky header at the start of the document is already stuck
+     from the first frame and never scrolls away.
+
+     Home only — every other page opens on a content column that needs
+     the header's height as clearance. */
+  .page-home .site-header{ position:fixed; left:0; right:0; }
   .nav-pill{
     grid-column:2; justify-self:center;
     pointer-events:all;
@@ -283,6 +294,20 @@
     padding:0;
     display:block;
     min-height:auto;
+  }
+  /* The blossom video, laid over the section's background image and
+     cropped the same way `center/cover` crops it, so the framing is
+     unchanged. .hero-stage is z-index 1, so it stays above this. */
+  .hero-video{
+    position:absolute; inset:0; z-index:0;
+    width:100%; height:100%;
+    object-fit:cover; object-position:center;
+    pointer-events:none;
+  }
+  /* Eight seconds of looping motion is exactly what this setting is
+     for; hiding the video falls back to the still underneath. */
+  @media (prefers-reduced-motion: reduce){
+    .hero-video{ display:none; }
   }
   .hero-stage{
     position:relative;
