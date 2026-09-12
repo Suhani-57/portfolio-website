@@ -87,9 +87,6 @@
   display:grid; grid-template-columns:55.3% 1fr;
   padding-left:7.9%; margin-top:1.5cqw;
 }
-.page-unseen .un-meta-note{
-  color:var(--un-brown); font-weight:500; align-self:end;
-}
 
 /* ============ 2. MUMBAI ============ */
 .page-unseen .un-sec:nth-of-type(2){ margin-top:5.5cqw; }
