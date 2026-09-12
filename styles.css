@@ -315,6 +315,23 @@
     aspect-ratio: 1440 / 932;
     container-type: inline-size;
   }
+  /* Land with the whole hero in view. The stage is a fixed 1440x932
+     frame and everything inside it is placed as a percentage of that
+     frame, so its height grows with the viewport width and on a wide
+     screen the CTA and the scroll cue drop below the fold.
+
+     Width stays the single driver — height follows from aspect-ratio —
+     so adding the viewport height as one more term of the min() keeps
+     the composition's proportions exactly and simply scales the whole
+     frame down until it fits. Capping max-height instead would clamp
+     the height without narrowing the width, which would stretch every
+     percentage inside it.
+
+     Desktop only: below 1100px the stage drops the fixed ratio and
+     flows, where a height cap would make no sense. */
+  @media (min-width: 1101px){
+    .hero-stage{ width:min(100%, 1440px, calc(100vh * 1440 / 932)); }
+  }
 
   /* --- the perforated paper card --- */
   .hero-card{
